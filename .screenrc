@@ -1,0 +1,22 @@
+escape ^Zz
+
+term xterm-color
+termcapinfo xterm-color|rxvt ti@:te@
+defutf8 on
+deflogin on
+monitor on
+defmonitor on
+defscrollback 10000
+shell -/bin/bash
+#shell -$SHELL
+#caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %Lm/%d/%LY - %c"
+caption always "%{= kw}%-w%{=b rW}%n %t%{-}%+w %-= @%H - %Lm/%d/%LY - %c"
+#vbell on
+
+
+
+# tell screen that you term can scroll
+#termcapinfo xterm ti@:te@
+# bind Shift+PgUp/PgDn
+#bindkey -m "^[[5;2~" stuff ^b
+#bindkey -m "^[[6;2~" stuff ^f

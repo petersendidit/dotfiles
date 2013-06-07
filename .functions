@@ -1,0 +1,50 @@
+# Create a new directory and enter it
+function md() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# Colored svn diff in a pager
+svndiff () {
+	svn diff "${@}" | colordiff | less -R
+}
+
+# find shorthand
+function f() {
+    find . -name "$1"
+}
+
+# Quickly change what branch sandbox is pointing to
+function workon() {
+	if test ! -d "$SANDBOX/public.$1"
+	then
+		echo "public.$1: Does not exist" >&2
+		return
+	fi
+	cd $SANDBOX
+	echo "`date` workon $@" >> ~/work.log
+	rm public
+	ln -s public.$1 public
+	cd -P public
+	pwd
+}
+
+_complete_ssh_hosts ()
+{
+        COMPREPLY=()
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+                        cut -f 1 -d ' ' | \
+                        sed -e s/,.*//g | \
+                        grep -v ^# | \
+                        uniq | \
+                        grep -v "\[" ;
+                if [ -f ~/.ssh/config ]; then
+                        cat ~/.ssh/config | \
+                                grep "^Host " | \
+                                awk '{print $2}'
+                fi
+                `
+        COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
+        return 0
+}
+complete -F _complete_ssh_hosts ssh

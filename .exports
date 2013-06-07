@@ -1,0 +1,38 @@
+# Editor
+if test -f /usr/bin/vim
+then
+	export EDITOR=/usr/bin/vim
+	alias vi=vim
+else
+	export EDITOR=`which vi`
+fi
+
+# Needed for svn
+unset USERNAME
+umask 0002
+
+# Larger bash history (default is 500)
+export HISTSIZE=10000
+export HISTFILESIZE=$HISTSIZE
+# Erase duplicates
+export HISTCONTROL=erasedups
+
+# Prefer US English and use UTF-8
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# Color term
+export TERM="xterm-color"
+
+# Tell ls to be colourful
+export CLICOLOR=1
+
+# Alchemy stuff
+export SERVERDIR="/home/dp/tmp"
+export SANDBOX="/web/sb/dp"
+export SVN="https://svn.avatartech.com/svn"
+export cisvn="$SVN/ci/branches"
+export svn=$SVN

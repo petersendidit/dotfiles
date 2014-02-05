@@ -35,3 +35,6 @@ export SANDBOX="/web/sb/dp"
 export SVN="https://svn.avatartech.com/svn"
 export cisvn="$SVN/ci/branches"
 export svn=$SVN
+
+# AutoSSH Config
+export AUTOSSH_PIDFILE=/tmp/autossh.pid

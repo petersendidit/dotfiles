@@ -19,6 +19,8 @@ alias l="ls -l ${colorflag}"
 alias la="ls -laho ${colorflag}"
 # List lots
 alias ll="la"
+# List by modified
+alias lm="la -t"
 
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
@@ -43,10 +45,15 @@ alias diff="diff --exclude=\".svn\""
 # Quick path stuff
 alias dp="cd /web/sb/dp/"
 alias p="cd -P /web/sb/dp/public"
+alias rrick="cd -P /web/sb/rrick/public"
+alias izagnitko="cd -P /web/sb/izagnitko/public"
 #Alchemy stuff
 alias alch="ssh -t scsh01 'screen -dr work || screen -S work bash -l'"
 alias db='grep DB Include/custom_config.phph'
 alias vicc='vi Include/custom_config.phph'
+# Hack to fix ssh keys and screen
+alias fixssh='source $HOME/bin/fixssh'
+alias ssh='fixssh; ssh'
 
 # Fix OSX Open With listing
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'

@@ -1,7 +1,8 @@
 call pathogen#infect()
 
 " status bar
-set statusline=%F%m%r%h%w\  "fullpath and status modified sign
+" set statusline=%F%m%r%h%w\  "fullpath and status modified sign
+set statusline=%f%m%r%h%w\  "path and status modified sign
 set statusline+=\ %y "filetype
 set statusline+=%=
 set statusline+=\ [%l\/%L:\%v] "line number and column number
@@ -57,9 +58,12 @@ set number
 set scrolloff=3
 
 " pretty colours
+set term=xterm-256color
 colorscheme solarized
 set background=dark
-set t_Co=256
+"set t_Co=256
+" Colors for vim-airline
+let g:airline_theme='solarized'
 
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -88,5 +92,10 @@ au BufNewFile,BufRead *.html set filetype=php
 au BufNewFile,BufRead *.phtml set filetype=php
 au BufNewFile,BufRead *.rgt setf rgt
 
+" Json is just javasccript
+autocmd BufNewFile,BufRead *.json set ft=javascript
 " Try to fine the tags file
 set tags=tags\ /usr/lib/tags\ ../tags\ public/tags\ ./public/tags
+"
+" Sudo write (,W)
+noremap <leader>W :w !sudo tee %<CR>

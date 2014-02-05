@@ -27,6 +27,7 @@ function workon() {
 	cd -P public
 	pwd
 }
+complete -W "$(echo `ls $SANDBOX/svn`)" workon
 
 _complete_ssh_hosts ()
 {

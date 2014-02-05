@@ -23,7 +23,8 @@ deflogin on
 #defmonitor on
 defscrollback 10000
 shell -/bin/bash
-caption always "%{= kw}%-w%{=b rW}%n %t%{-}%+w %-= @%H - %Lm/%d/%LY - %c"
+#caption always "%{= kw}%-w%{=b rW}%n %t%{-}%+w %-= @%H - %Lm/%d/%LY - %c"
+caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %Lm/%d/%LY - %c"
 
 # tab-completion flash in heading bar
 vbell off

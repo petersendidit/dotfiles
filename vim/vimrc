@@ -10,6 +10,8 @@ Plugin 'bling/vim-airline'
 " Syntax checking
 Plugin 'scrooloose/syntastic'
 Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
 
 " Enable file type detection. Do this after Vundle calls.
 call vundle#end()

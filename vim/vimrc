@@ -1,4 +1,20 @@
-call pathogen#infect()
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Vundle has to manage Vundle.
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'bling/vim-airline'
+" Syntax checking
+Plugin 'scrooloose/syntastic'
+Plugin 'editorconfig/editorconfig-vim'
+
+" Enable file type detection. Do this after Vundle calls.
+call vundle#end()
+filetype plugin indent on
+
 
 " status bar
 " set statusline=%F%m%r%h%w\  "fullpath and status modified sign

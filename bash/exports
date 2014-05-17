@@ -32,9 +32,13 @@ export CLICOLOR=1
 export SERVER="dp01.alchemy-eng.com"
 export SERVERDIR="/web/sb/dp"
 export SANDBOX="/web/sb/dp"
-export SVN="https://svn.avatartech.com/svn"
+export SVN="https://svn.alchemysystems.com/svn"
 export cisvn="$SVN/ci/branches"
 export svn=$SVN
+export DBSERVER="db01dev.dfw.alchemysystems.com"
 
 # AutoSSH Config
 export AUTOSSH_PIDFILE=/tmp/autossh.pid
+
+# search current directory, current include dir, home directory, and projects folder
+export CDPATH=".:./Include:~"

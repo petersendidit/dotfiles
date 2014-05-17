@@ -28,15 +28,6 @@ export TERM="xterm-color"
 # Tell ls to be colourful
 export CLICOLOR=1
 
-# Alchemy stuff
-export SERVER="dp01.alchemy-eng.com"
-export SERVERDIR="/web/sb/dp"
-export SANDBOX="/web/sb/dp"
-export SVN="https://svn.alchemysystems.com/svn"
-export cisvn="$SVN/ci/branches"
-export svn=$SVN
-export DBSERVER="db01dev.dfw.alchemysystems.com"
-
 # AutoSSH Config
 export AUTOSSH_PIDFILE=/tmp/autossh.pid
 

@@ -10,6 +10,8 @@ symlinks:
 	@ln -sf $(DIR)/vim/vimrc ~/.vimrc
 	@ln -sf $(DIR)/git/gitconfig ~/.gitconfig
 	@ln -sf $(DIR)/git/gitignore_global ~/.gitignore_global
+	@ln -sf $(DIR)/.screenrc ~/.screenrc
+	@ln -sf $(DIR)/.colordiffrc ~/.colordiffrc
 
 clone_vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim

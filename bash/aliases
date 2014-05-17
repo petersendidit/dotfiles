@@ -48,13 +48,9 @@ alias p="cd -P /web/sb/dp/public"
 alias rrick="cd -P /web/sb/rrick/public"
 alias izagnitko="cd -P /web/sb/izagnitko/public"
 #Alchemy stuff
-alias fixkeys="ssh-add -K ~/.ssh/id_dsa"
-#alias alch="fixkeys; ssh -t scsh01 '$HOME/bin/grabssh ; screen -dr work || screen -S work bash -l'"
+alias alch="ssh -t fs01dev '~/bin/screenstart'"
 alias db='grep DB Include/custom_config.phph'
 alias vicc='vi Include/custom_config.phph'
-# Hack to fix ssh keys and screen
-alias fixssh='source $HOME/bin/fixssh'
-alias ssh='fixssh; ssh'
 alias alchemytunnel="autossh -M 20000 -f -N -D 8001 scsh01"
 
 # Fix OSX Open With listing

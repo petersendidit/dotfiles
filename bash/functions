@@ -27,7 +27,9 @@ function workon() {
 	cd -P public
 	pwd
 }
-complete -W "$(echo `ls $SANDBOX/svn`)" workon
+if [ -d "$SANDBOX/svn" ]; then
+	complete -W "$(echo `ls $SANDBOX/svn`)" workon
+fi
 
 _complete_ssh_hosts ()
 {
@@ -49,3 +51,15 @@ _complete_ssh_hosts ()
         return 0
 }
 complete -F _complete_ssh_hosts ssh
+
+# Fix ssh keys in screen
+# http://www.tolaris.com/2011/07/12/reconnecting-your-ssh-agent-to-a-detached-gnu-screen-session/
+function ssh-reagent () {
+  export SSH_AUTH_SOCK=$(find /tmp/ssh-* -user `whoami` -name agent\* -printf '%T@ %p\n' 2>/dev/null | sort -k 1nr | sed 's/^[^ ]* //' | head -n 1)
+  if ssh-add -l 2&>1 > /dev/null; then
+    echo Found working SSH Agent:
+    ssh-add -l
+    return
+  fi
+  echo Cannot find ssh agent - maybe you should reconnect and forward it?
+}

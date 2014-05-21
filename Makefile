@@ -1,6 +1,6 @@
 DIR=~/dotfiles
 
-all: symlinks clone_vundle
+all: symlinks clone_vundle completion
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
@@ -15,3 +15,6 @@ symlinks:
 
 clone_vundle: symlinks
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+completion:
+	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash

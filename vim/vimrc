@@ -12,6 +12,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'editorconfig/editorconfig-vim'
 " Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
+" Svn and Git gutters
+Plugin 'mhinz/vim-signify'
 
 " Enable file type detection. Do this after Vundle calls.
 call vundle#end()
@@ -134,3 +136,6 @@ set tags=tags\ /usr/lib/tags\ ../tags\ public/tags\ ./public/tags
 
 " Sudo write (,W)
 noremap <leader>W :w !sudo tee %<CR>
+
+" Limit to svn and git
+let g:signify_vcs_list = [ 'svn', 'git' ]

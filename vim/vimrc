@@ -27,6 +27,9 @@ set statusline+=\ %y "filetype
 set statusline+=%=
 set statusline+=\ [%l\/%L:\%v] "line number and column number
 
+" Use the poweline fonts to make airline pretty
+let g:airline_powerline_fonts = 1
+
 " auto load files if vim detects they have been changed outside of Vim
 set autoread
 

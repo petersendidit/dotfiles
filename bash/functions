@@ -25,6 +25,7 @@ function workon() {
 	rm public
 	ln -s public.$1 public
 	cd -P public
+	ctags &
 	pwd
 }
 if [ -d "$SANDBOX/svn" ]; then

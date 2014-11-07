@@ -8,6 +8,11 @@ svndiff () {
 	svn diff "${@}" | colordiff | less -R
 }
 
+# create a patch file to load again later
+makediff () {
+	svn diff --diff-cmd=diff > ~/diffs/"${@}".diff
+}
+
 # find shorthand
 function f() {
     find . -name "$1"
@@ -57,7 +62,7 @@ complete -F _complete_ssh_hosts ssh
 # http://www.tolaris.com/2011/07/12/reconnecting-your-ssh-agent-to-a-detached-gnu-screen-session/
 function ssh-reagent () {
   export SSH_AUTH_SOCK=$(find /tmp/ssh-* -user `whoami` -name agent\* -printf '%T@ %p\n' 2>/dev/null | sort -k 1nr | sed 's/^[^ ]* //' | head -n 1)
-  if ssh-add -l 2&>1 > /dev/null; then
+  if ssh-add -l 2>&1 > /dev/null; then
     echo Found working SSH Agent:
     ssh-add -l
     return

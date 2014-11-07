@@ -10,10 +10,12 @@ Plugin 'bling/vim-airline'
 " Syntax checking
 Plugin 'scrooloose/syntastic'
 Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 " Svn and Git gutters
 Plugin 'mhinz/vim-signify'
+" Disables using hjkl multiple times in a row
+Plugin 'takac/vim-hardtime'
 
 " Enable file type detection. Do this after Vundle calls.
 call vundle#end()
@@ -162,3 +164,7 @@ augroup vagrant
 	au!
 	au BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
+
+" YouCompleteMe Plugin stuff
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1

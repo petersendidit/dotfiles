@@ -106,6 +106,9 @@ if exists("&relativenumber")
 	au BufReadPost * set relativenumber
 endif
 
+" Toggle numbers
+nmap \l :setlocal number!<CR><bar>:setlocal relativenumber!<CR>
+
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
@@ -156,6 +159,9 @@ set tags=tags\ /usr/lib/tags\ ../tags\ public/tags\ ./public/tags
 
 " Sudo write (,W)
 noremap <leader>W :w !sudo tee %<CR>
+
+" Toggle paste mode
+nmap \o :set paste!<CR>
 
 " Limit to svn and git
 let g:signify_vcs_list = [ 'svn', 'git' ]

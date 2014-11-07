@@ -167,6 +167,13 @@ noremap <leader>W :w !sudo tee %<CR>
 " Toggle paste mode
 nmap \o :set paste!<CR>
 
+" Back to the buffer we came from
+nmap <C-e> :e#<CR>
+
+" Easy bouncing buffers
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
+
 " Limit to svn and git
 let g:signify_vcs_list = [ 'svn', 'git' ]
 

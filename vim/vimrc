@@ -16,11 +16,14 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'mhinz/vim-signify'
 " Disables using hjkl multiple times in a row
 Plugin 'takac/vim-hardtime'
+Plugin 'kien/ctrlp.vim'
 
 " Enable file type detection. Do this after Vundle calls.
 call vundle#end()
 filetype plugin indent on
 
+let mapleader = ","
+let maplocalleader = ","
 
 " status bar
 " set statusline=%F%m%r%h%w\  "fullpath and status modified sign
@@ -185,3 +188,13 @@ augroup END
 " YouCompleteMe Plugin stuff
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" ctrlp.vim
+let g:ctrlp_map = '<Leader>t'
+"let g:ctrlp_match_window_bottom = 0
+"let g:ctrlp_match_window_reversed = 0
+"let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])|__init__\.py'
+"let g:ctrlp_working_path_mode = 0
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
+nmap ; :CtrlPBuffer<CR>

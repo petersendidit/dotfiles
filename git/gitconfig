@@ -33,6 +33,7 @@
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [core]
 	excludesfile = /Users/petersendidit/.gitignore
+	editor = vim
 [help]
 	autocorrect = 1
 [filter "media"]

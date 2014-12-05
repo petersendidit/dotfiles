@@ -4,6 +4,9 @@
 [github]
 	user = petersendidit
 	email = public@petersendidit.com
+[alchemy]
+	user = "David Petersen"
+	email = david.petersen@alchemysystems.com
 [alias]
 	br = branch
 	ci = commit

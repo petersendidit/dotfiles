@@ -23,7 +23,7 @@ export LC_ALL="en_US.UTF-8"
 export MANPAGER="less -X"
 
 # Color term
-export TERM="xterm-color"
+#export TERM="xterm-265color"
 
 # Tell ls to be colourful
 export CLICOLOR=1

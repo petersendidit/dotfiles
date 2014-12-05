@@ -56,4 +56,7 @@ alias alchemytunnel="autossh -M 20000 -f -N -D 8001 scsh01"
 # Fix OSX Open With listing
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
-alias sed="gsed"
+_myos="$(uname)"
+if [ $_myos = "Darwin" ]; then
+	alias sed="gsed"
+fi

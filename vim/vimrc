@@ -406,6 +406,9 @@ xmap <space> <leader>
 " Reload our .vimrc
 nmap <leader>~ :source ~/.vimrc<CR>:redraw!<CR>:AirlineRefresh<CR>:echo "~/.vimrc reloaded!"<CR>
 
+" Open file
+nmap <leader>o :CtrlP<CR>
+
 " Write file
 nmap <leader>w :w<CR>
 

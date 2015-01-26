@@ -323,6 +323,17 @@ let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(
 let g:ctrlp_show_hidden = 0
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
+" Use The Silver Searcher if available
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+  " Skip caching since ag is so fast
+  let g:ctrlp_use_caching = 0
+endif
 nmap ; :CtrlPBuffer<CR>
 
 " Signify Config

@@ -89,6 +89,9 @@ if exists(':Plugin')
   " Disables using hjkl multiple times in a row
   Plugin 'takac/vim-hardtime'
 
+  " Reopen files where you left off last time
+  Plugin 'dietsche/vim-lastplace'
+
   " Language syntax support
   Plugin 'tpope/vim-markdown'
   Plugin 'tpope/vim-git'

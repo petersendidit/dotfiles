@@ -1,7 +1,7 @@
 # Editor
-if test -f /usr/bin/vim
+if which vim > /dev/null;
 then
-	export EDITOR=/usr/bin/vim
+	export EDITOR=vim
 	alias vi=vim
 else
 	export EDITOR=`which vi`

@@ -521,6 +521,8 @@ nmap <leader>n :setlocal number!<CR><bar>:setlocal relativenumber!<CR>
 if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin\n"
+    " Set clipboard to system clipboard
+    set clipboard=unnamed
     " Search for word under cursor in Dash.app
     nmap <leader>d <Plug>DashSearch
     nmap <leader>D <Plug>DashGlobalSearch

@@ -270,6 +270,10 @@ endif
 " through to the prev/next line.
 set whichwrap+=<,>,h,l
 
+" Create new splits to the right and below
+set splitright
+set splitbelow
+
 " allow modified buffers to be hidden
 set hidden
 
@@ -372,6 +376,14 @@ nnoremap <script> <SID>ws- <C-w>-<SID>ws
 nnoremap <script> <SID>ws> <C-w>><SID>ws
 nnoremap <script> <SID>ws< <C-w><<SID>ws
 nmap <SID>ws <Nop>
+
+" Tab handling
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
+inoremap <C-j> <Esc>:tabprevious<CR>i
+inoremap <C-k> <Esc>:tabnext<CR>i
 
 " Allow writing via sudo
 cnoremap w!! w !sudo tee > /dev/null %

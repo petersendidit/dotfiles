@@ -157,6 +157,7 @@ set laststatus=2	" always show the status line
 set ruler			" show cursor position (overridden by statusline)
 set showcmd			" show partial command in bottom-right
 set showtabline=1	" Show tabline only when more than one tab exists
+set title           " Show the filename in the window titlebar
 
 set wildmenu 		" use tab completion on command line
 

@@ -249,7 +249,7 @@ set undolevels=10000
 " Use relative line numbers
 if exists("&relativenumber")
   set relativenumber
-  au BufReadPost * set relativenumber
+  autocmd BufReadPost * set relativenumber
 endif
 
 " Line numbers
@@ -532,7 +532,7 @@ if has("unix")
     function! s:setupMarkup()
       nmap <leader>M :silent !open -a Marked.app '%:p'<CR>:redraw!<CR>
     endfunction
-    au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+    autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
   endif
 endif
 
@@ -548,26 +548,26 @@ function! RD_SetupWrapping()
 endfunction
 
 " Make sure all markdown files have the correct filetype set and setup wrapping
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
-au FileType markdown call RD_SetupWrapping()
-au FileType markdown setlocal ts=4 sts=4 sw=4
+autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+autocmd FileType markdown call RD_SetupWrapping()
+autocmd FileType markdown setlocal ts=4 sts=4 sw=4
 
 " enable spell checking on certain files
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
 
 " Treat JSON files like JavaScript
-au BufNewFile,BufRead *.json set ft=javascript
+autocmd BufNewFile,BufRead *.json set ft=javascript
 
 augroup vagrant
-  au!
-  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+  autocmd!
+  autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 augroup END
 
 " Handle SISTEM Managers crazy file types
-au BufNewFile,BufRead *.phph set filetype=php
-au BufNewFile,BufRead *.php3 set filetype=php
-au BufNewFile,BufRead *.html set filetype=php
-au BufNewFile,BufRead *.phtml set filetype=php
-au BufNewFile,BufRead *.rgt setf rgt
+autocmd BufNewFile,BufRead *.phph set filetype=php
+autocmd BufNewFile,BufRead *.php3 set filetype=php
+autocmd BufNewFile,BufRead *.html set filetype=php
+autocmd BufNewFile,BufRead *.phtml set filetype=php
+autocmd BufNewFile,BufRead *.rgt setf rgt
 
 " vim:set ft=vim et sw=2:

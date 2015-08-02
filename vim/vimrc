@@ -102,6 +102,11 @@ if exists(':Plugin')
   " Reopen files where you left off last time
   Plugin 'dietsche/vim-lastplace'
 
+  " Dependancy for vim-session
+  Plugin 'xolox/vim-misc'
+  " Save sessions
+  Plugin 'xolox/vim-session'
+
   " Language syntax support
   Plugin 'tpope/vim-markdown'
   Plugin 'tpope/vim-git'
@@ -310,6 +315,9 @@ set cursorline
 if exists('+colorcolumn')
   set colorcolumn=80,100
 endif
+
+" Vim-session Config
+let g:session_autosave = 'no'
 
 " YouCompleteMe Config
 let g:ycm_collect_identifiers_from_tags_files = 1

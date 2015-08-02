@@ -569,15 +569,24 @@ function! RD_SetupWrapping()
 endfunction
 
 " Make sure all markdown files have the correct filetype set and setup wrapping
-autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
-autocmd FileType markdown call RD_SetupWrapping()
-autocmd FileType markdown setlocal ts=4 sts=4 sw=4
+augroup markdown
+  autocmd!
+  autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
+  autocmd FileType markdown call RD_SetupWrapping()
+  autocmd FileType markdown setlocal ts=4 sts=4 sw=4
+augroup END
 
 " enable spell checking on certain files
-autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
+augroup Spelling
+  autocmd!
+  autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
+augroup END
 
 " Treat JSON files like JavaScript
-autocmd BufNewFile,BufRead *.json set ft=javascript
+augroup Json
+  autocmd!
+  autocmd BufNewFile,BufRead *.json set ft=javascript
+augroup END
 
 augroup vagrant
   autocmd!
@@ -585,10 +594,13 @@ augroup vagrant
 augroup END
 
 " Handle SISTEM Managers crazy file types
-autocmd BufNewFile,BufRead *.phph set filetype=php
-autocmd BufNewFile,BufRead *.php3 set filetype=php
-autocmd BufNewFile,BufRead *.html set filetype=php
-autocmd BufNewFile,BufRead *.phtml set filetype=php
-autocmd BufNewFile,BufRead *.rgt setf rgt
+augroup Manager
+  autocmd!
+  autocmd BufNewFile,BufRead *.phph set filetype=php
+  autocmd BufNewFile,BufRead *.php3 set filetype=php
+  autocmd BufNewFile,BufRead *.html set filetype=php
+  autocmd BufNewFile,BufRead *.phtml set filetype=php
+  autocmd BufNewFile,BufRead *.rgt setf rgt
+augroup END
 
 " vim:set ft=vim et sw=2:

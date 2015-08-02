@@ -8,8 +8,11 @@ for file in ~/dotfiles/bash/{bash_prompt,path,dir_colors,exports,aliases,functio
 done
 unset file
 
-if [ -f ~/.git-completion.bash ]; then
-	. ~/.git-completion.bash
-fi
+# bash completion.
+if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+	source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion;
+fi;
 
 [ -r ~/.extra ] && source ~/.extra

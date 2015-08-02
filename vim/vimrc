@@ -27,6 +27,9 @@ if exists(':Plugin')
   " https://github.com/tpope/vim-commentary
   Plugin 'tpope/vim-commentary'
 
+  " Pairs of handy bracket mappings
+  Plugin 'tpope/vim-unimpaired'
+
   " CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder.
   " Open with CTRL-P, then:
   "   Press <c-f> and <c-b> to cycle between modes.

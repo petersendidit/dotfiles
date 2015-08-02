@@ -330,10 +330,13 @@ let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 " Syntastic config
+let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_auto_jump = 2         " Jump to syntax errors
-let g:syntastic_javascript_checkers = ['jsxhint']
+"let g:syntastic_auto_jump = 2         " Jump to syntax errors
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_php_phpcs_args="--standard=PSR2"
 
 " ctrlp config
 let g:ctrlp_map = '<Leader>t'

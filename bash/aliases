@@ -42,13 +42,21 @@ alias vo="vim -o"
 alias applysvndiff="patch -p0 -i "
 alias diff="diff --exclude=\".svn\""
 
+# SVN shorts
+alias svnd="svn diff"
+alias svnu="svn up"
+alias svns="svn status"
+alias svnl="svn log -l5"
+alias svndp="svn diff --diff-cmd=diff | pbcopy"
+
 # Quick path stuff
 alias dp="cd /web/sb/dp/"
 alias p="cd -P /web/sb/dp/public"
 alias rrick="cd -P /web/sb/rrick/public"
 alias izagnitko="cd -P /web/sb/izagnitko/public"
 #Alchemy stuff
-alias alch="ssh -t fs01dev '~/bin/screenstart'"
+#alias alch="ssh -t fs01dev '~/bin/screenstart'"
+alias alch="ssh -t sb.dfw '~/bin/screenstart'"
 alias db='grep DB Include/custom_config.phph'
 alias vicc='vi Include/custom_config.phph'
 alias alchemytunnel="autossh -M 20000 -f -N -D 8001 scsh01"

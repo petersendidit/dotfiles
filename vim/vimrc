@@ -86,6 +86,9 @@ if exists(':Plugin')
   Plugin 'honza/vim-snippets'
   Plugin 'justinj/vim-react-snippets'
 
+  " Tools and environment to make Vim superb for developing with Node.jS
+  Plugin 'moll/vim-node'
+
   " Shows svn or git diff in the gutter
   Plugin 'mhinz/vim-signify'
 

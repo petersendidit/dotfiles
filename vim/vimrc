@@ -92,6 +92,9 @@ if exists(':Plugin')
   " Shows svn or git diff in the gutter
   Plugin 'mhinz/vim-signify'
 
+  " Extended % matching for HTML and other languages
+  Plugin 'vim-scripts/matchit.zip'
+
   " Vim Hard mode
   " Disables using hjkl multiple times in a row
   Plugin 'takac/vim-hardtime'

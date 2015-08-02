@@ -36,7 +36,8 @@ if exists(':Plugin')
   "   Press <c-d> to switch to filename only search instead of full path.
   "   Press <c-r> to switch to regexp mode.
   " https://github.com/kien/ctrlp.vim
-  Plugin 'kien/ctrlp.vim'
+  " Plugin 'kien/ctrlp.vim'
+  Plugin 'ctrlpvim/ctrlp.vim'
 
   " Tabular.vim is a plugin that aligns text by some pattern, e.g.:
   " :Tab /,

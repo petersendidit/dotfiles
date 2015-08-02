@@ -111,6 +111,9 @@ if exists(':Plugin')
   Plugin 'tpope/vim-markdown'
   Plugin 'tpope/vim-git'
 
+  " PHP Refactor tool
+  " Plugin 'adoy/vim-php-refactoring-toolbox'
+
   " Color schemes
   Plugin 'altercation/vim-colors-solarized'
 

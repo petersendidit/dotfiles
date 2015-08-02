@@ -32,7 +32,7 @@
 [difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [core]
-	excludesfile = /Users/petersendidit/.gitignore
+	excludesfile = /Users/petersendidit/.gitignore_global
 	editor = vim
 [help]
 	autocorrect = 1
@@ -40,3 +40,9 @@
 	clean = git media clean %f
 	smudge = git media smudge %f
 	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

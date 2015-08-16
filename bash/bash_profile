@@ -15,4 +15,17 @@ elif [ -f /etc/bash_completion ]; then
     source /etc/bash_completion;
 fi;
 
+# homebrew completion
+if which brew > /dev/null; then
+    source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+fi;
+
+# vagrant completion
+if [ -f `brew --prefix`/etc/bash_completion.d/vagrant ]; then
+    source `brew --prefix`/etc/bash_completion.d/vagrant
+fi
+
+# grunt completion
+eval "$(grunt --completion=bash)"
+
 [ -r ~/.extra ] && source ~/.extra

@@ -1,6 +1,7 @@
 PATH="$PATH:/usr/local/devtools/bin"
 PATH="$PATH:/usr/local/devtools/regret"
 PATH="$HOME/.composer/vendor/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
 #PATH="$PATH:/home/paul/bin/"
 #PATH="$PATH:/home/paul/lbin/"
 #PATH="$PATH:/usr/local/pear/bin/"

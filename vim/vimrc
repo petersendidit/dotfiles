@@ -83,7 +83,9 @@ if exists(':Plugin')
   Plugin 'tomtom/tlib_vim'
   Plugin 'MarcWeber/vim-addon-mw-utils'
   Plugin 'garbas/vim-snipmate'
+  " Actual snippets
   Plugin 'honza/vim-snippets'
+  " Snippets for react
   Plugin 'justinj/vim-react-snippets'
 
   " Tools and environment to make Vim superb for developing with Node.jS
@@ -110,6 +112,8 @@ if exists(':Plugin')
   " Language syntax support
   Plugin 'tpope/vim-markdown'
   Plugin 'tpope/vim-git'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'mxw/vim-jsx'
 
   " PHP Refactor tool
   " Plugin 'adoy/vim-php-refactoring-toolbox'
@@ -391,9 +395,18 @@ let g:airline_powerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
+" :map       Normal, Visual and Operator-pending
+" :vmap      Visual
+" :nmap      Normal
+" :omap      Operator-pending (Eg: dw where d is operator character and w is motion character)
+" :map!      Insert and Command-line
+" :imap      Insert
+" :cmap      Command-line
+"
 " Quick ESC
 " Some people map jk for this, but it makes Dijkstra sad.
 imap kj <ESC>
+imap jj <ESC>
 
 " Insert the hashrocket with CTRL+l
 imap <c-l> <space>=><space>

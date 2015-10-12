@@ -1,0 +1,22 @@
+#!/bin/sh
+
+AUTOSSH_PIDFILE="/tmp/alchemy_autossh.pid"
+
+if [ "$1" == "start" ]
+then
+	ID=`cat "$AUTOSSH_PIDFILE"`
+	if [ -e "$AUTOSSH_PIDFILE" ] && ps -p $ID > /dev/null; then
+		echo "Tunnel already running"
+	else
+		echo "Starting… "
+		/usr/local/bin/autossh -M 20000 -f -N -D 8001 alchsh && echo "Tunnel started"
+	fi
+elif [ "$1" == "stop" ]
+then
+	if [ -e "$AUTOSSH_PIDFILE" ]; then
+		kill $(head -n 1 "$AUTOSSH_PIDFILE")
+		echo "Tunnel stopped"
+	else
+		echo "Tunnel not running"
+	fi
+fi

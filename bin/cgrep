@@ -1,0 +1,14 @@
+#!/bin/sh
+
+find . -maxdepth 6 \
+        -o -name .svn -prune \
+        -o \
+        ! -iname '*.jpg' \
+        ! -iname '*.gif' \
+        ! -name '*.ci[zr]' \
+        ! -name tags \
+        ! -name changelog.txt \
+        ! -name '*.pdf' \
+        -print |
+xargs grep -Is "$@"
+

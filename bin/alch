@@ -1,0 +1,2 @@
+#bash
+ssh -t fs01dev '$HOME/bin/grabssh; screen -dr work || screen -S work bash -l'

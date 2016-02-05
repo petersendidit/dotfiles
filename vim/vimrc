@@ -96,8 +96,8 @@ if exists(':Plugin')
   " Tools and environment to make Vim superb for developing with Node.jS
   Plugin 'moll/vim-node'
 
-  " Shows svn or git diff in the gutter
-  Plugin 'mhinz/vim-signify'
+  " Shows git diff in the gutter
+  Plugin 'airblade/vim-gitgutter'
 
   " show multipanes when editing a COMMIT_EDITMSG
   Plugin 'rhysd/committia.vim'
@@ -394,10 +394,6 @@ if executable('ag')
   nnoremap <leader>a :Ag
 endif
 nmap ; :CtrlPBuffer<CR>
-
-" Signify Config
-" Limit to svn and git
-let g:signify_vcs_list = [ 'git', 'svn' ]
 
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red

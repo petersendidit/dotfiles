@@ -79,6 +79,7 @@ if exists(':Plugin')
   Plugin 'rizzatti/greper.vim'
 
   " This is a dependency of Dash.vim and Grepper.vim
+  " https://github.com/rizzatti/funcoo.vim
   Plugin 'rizzatti/funcoo.vim'
 
   " SnipMate aims to provide support for textual snippets, similar to TextMate
@@ -94,6 +95,7 @@ if exists(':Plugin')
   Plugin 'justinj/vim-react-snippets'
 
   " Tools and environment to make Vim superb for developing with Node.jS
+  " https://github.com/moll/vim-node
   Plugin 'moll/vim-node'
 
   " Shows git diff in the gutter
@@ -110,6 +112,7 @@ if exists(':Plugin')
   Plugin 'takac/vim-hardtime'
 
   " Reopen files where you left off last time
+  " https://github.com/dietsche/vim-lastplace
   Plugin 'dietsche/vim-lastplace'
 
   " Add file manip commands like Remove, Move, Rename, SudoWrite
@@ -127,7 +130,6 @@ if exists(':Plugin')
   " Javascript Syntax Support
   Plugin 'othree/yajs.vim' " Javascript Syntax
   Plugin 'gavocanov/vim-js-indent' " Javascript Indenting
-  " Plugin 'pangloss/vim-javascript'
   Plugin 'mxw/vim-jsx' " JSX Support for React
   Plugin 'heavenshell/vim-jsdoc' "JSDoc suto-snippets
   Plugin 'othree/javascript-libraries-syntax.vim' " Extras for javascript Libraries
@@ -273,6 +275,9 @@ endif
 set background=dark
 silent! colorscheme solarized
 let g:airline_theme='solarized'		" Colors for vim-airline
+
+" Allow gx to open urls in the browser
+let g:netrw_browsex_viewer = 'open'
 
 " Centralize backups, swapfiles and undo history
 set swapfile

@@ -2,165 +2,167 @@
 " lots used from: https://github.com/rdlugosz/dotfiles/blob/master/vimrc
 set nocompatible		" be iMproved
 
-" Begining Vundle init
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Plugins
+call plug#begin('~/.vim/plugged')
 
-if exists(':Plugin')
-  " Vundle has to manage Vundle. - must be first
-  " use commands PluginInstall, PluginUpdate, PluginClean
-  Plugin 'gmarik/Vundle.vim'
+" Vim Airline improves the look & functionality of the statusline.
+Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 
-  " Vim Airline improves the look & functionality of the statusline.
-  Plugin 'bling/vim-airline'
-  Plugin 'vim-airline/vim-airline-themes'
+" Surround.vim lets you add/change/remove surrounding chars and tags
+" https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
 
-  " Surround.vim lets you add/change/remove surrounding chars and tags
-  " https://github.com/tpope/vim-surround
-  Plugin 'tpope/vim-surround'
+" Commentary.vim provides commenting for many languages
+" Use gcc to comment out a line (takes a count), gc to comment out the
+" target of a motion (for example, gcap to comment out a paragraph),
+" gc in visual mode to comment out the selection, and gc in operator
+" pending mode to target a comment.
+" https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
 
-  " Commentary.vim provides commenting for many languages
-  " Use gcc to comment out a line (takes a count), gc to comment out the
-  " target of a motion (for example, gcap to comment out a paragraph),
-  " gc in visual mode to comment out the selection, and gc in operator
-  " pending mode to target a comment.
-  " https://github.com/tpope/vim-commentary
-  Plugin 'tpope/vim-commentary'
+" Pairs of handy bracket mappings
+Plug 'tpope/vim-unimpaired'
 
-  " Pairs of handy bracket mappings
-  Plugin 'tpope/vim-unimpaired'
+" Add a scratch pad
+Plug 'vim-scripts/scratch.vim'
 
-  " Autoclose brackets
-  Plugin 'MartinLafreniere/vim-PairTools'
+" Autoclose brackets
+Plug 'MartinLafreniere/vim-PairTools'
 
-  " CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder.
-  " Open with CTRL-P, then:
-  "   Press <c-f> and <c-b> to cycle between modes.
-  "   Press <c-d> to switch to filename only search instead of full path.
-  "   Press <c-r> to switch to regexp mode.
-  " https://github.com/kien/ctrlp.vim
-  " Plugin 'kien/ctrlp.vim'
-  Plugin 'ctrlpvim/ctrlp.vim'
+" CtrlP.vim is a fuzzy file, buffer, mru, tag, etc finder.
+" Open with CTRL-P, then:
+"   Press <c-f> and <c-b> to cycle between modes.
+"   Press <c-d> to switch to filename only search instead of full path.
+"   Press <c-r> to switch to regexp mode.
+" https://github.com/ctrlpvim/ctrlp.vim
+Plug 'ctrlpvim/ctrlp.vim'
 
-  " Tabular.vim is a plugin that aligns text by some pattern, e.g.:
-  " :Tab /,
-  " will align lines by their commas. We have some mappings set up later, like
-  " <leader>t: to align on symbals and <leader>t= to align on assignment.
-  " https://github.com/godlygeek/tabular
-  Plugin 'godlygeek/tabular'
+" Tabular.vim is a plugin that aligns text by some pattern, e.g.:
+" :Tab /,
+" will align lines by their commas. We have some mappings set up later, like
+" <leader>t: to align on symbals and <leader>t= to align on assignment.
+" https://github.com/godlygeek/tabular
+Plug 'godlygeek/tabular', { 'on': ['Tabularize'] }
 
-  " Indent Guides is a plugin for visually displaying indent levels in Vim.
-  " Toggle with <leader>ig
-  " https://github.com/nathanaelkane/vim-indent-guides
-  Plugin 'nathanaelkane/vim-indent-guides'
+" Indent Guides is a plugin for visually displaying indent levels in Vim.
+" Toggle with <leader>ig
+" https://github.com/nathanaelkane/vim-indent-guides
+Plug 'nathanaelkane/vim-indent-guides'
 
-  " Creates a new text object 'i' for indentation. E.g.,
-  "   vii will select block of text at current indent level
-  "   vai will select block of text at current indent level, plus line above
-  "   vaI selects block of text at current indent level, plus line above & below
-  " http://www.vim.org/scripts/script.php?script_id=3037
-  Plugin 'michaeljsmith/vim-indent-object'
+" Creates a new text object 'i' for indentation. E.g.,
+"   vii will select block of text at current indent level
+"   vai will select block of text at current indent level, plus line above
+"   vaI selects block of text at current indent level, plus line above & below
+" http://www.vim.org/scripts/script.php?script_id=3037
+Plug 'michaeljsmith/vim-indent-object'
 
-  " Syntax checker for many languages
-  Plugin 'scrooloose/syntastic'
-  Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
+" Syntax checker for many languages
+" https://github.com/scrooloose/syntastic
+Plug 'scrooloose/syntastic'
+" https://github.com/pmsorhaindo/syntastic-local-eslint.vim
+Plug 'pmsorhaindo/syntastic-local-eslint.vim'
 
-  " Project level configurations for tabs and new lines
-  Plugin 'editorconfig/editorconfig-vim'
+" Project level configurations for tabs and new lines
+Plug 'editorconfig/editorconfig-vim'
 
-  " Searches Dash.app for the word under the cursor with <leader>d
-  " https://github.com/rizzatti/dash.vim
-  Plugin 'rizzatti/dash.vim'
+" Searches Dash.app for the word under the cursor with <leader>d
+" https://github.com/rizzatti/dash.vim
+Plug 'rizzatti/dash.vim'
 
-  " Adds the :G family of commands for grepping. Automatically decides between
-  " Ag, Ack and Grep depending on what's available.
-  " https://github.com/rizzatti/greper.vim
-  Plugin 'rizzatti/greper.vim'
+" Adds the :G family of commands for grepping. Automatically decides between
+" Ag, Ack and Grep depending on what's available.
+" https://github.com/rizzatti/greper.vim
+Plug 'rizzatti/greper.vim'
 
-  " This is a dependency of Dash.vim and Grepper.vim
-  " https://github.com/rizzatti/funcoo.vim
-  Plugin 'rizzatti/funcoo.vim'
+" This is a dependency of Dash.vim and Grepper.vim
+" https://github.com/rizzatti/funcoo.vim
+Plug 'rizzatti/funcoo.vim'
 
-  " SnipMate aims to provide support for textual snippets, similar to TextMate
-  " or other Vim plugins. Activate by typing some text and hitting <tab>.
-  " Snipmate depends on tlib and mw-utils.
-  " https://github.com/garbas/vim-snipmate
-  Plugin 'tomtom/tlib_vim'
-  Plugin 'MarcWeber/vim-addon-mw-utils'
-  Plugin 'garbas/vim-snipmate'
-  " Actual snippets
-  Plugin 'honza/vim-snippets'
-  " Snippets for react
-  Plugin 'justinj/vim-react-snippets'
+" SnipMate aims to provide support for textual snippets, similar to TextMate
+" or other Vim plugins. Activate by typing some text and hitting <tab>.
+" Snipmate depends on tlib and mw-utils.
+" https://github.com/garbas/vim-snipmate
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+" Actual snippets
+Plug 'honza/vim-snippets'
+" Snippets for react
+" https://github.com/justinj/vim-react-snippets
+Plug 'justinj/vim-react-snippets'
 
-  " Tools and environment to make Vim superb for developing with Node.jS
-  " https://github.com/moll/vim-node
-  Plugin 'moll/vim-node'
+" Tools and environment to make Vim superb for developing with Node.jS
+" https://github.com/moll/vim-node
+Plug 'moll/vim-node'
 
-  " Shows git diff in the gutter
-  Plugin 'airblade/vim-gitgutter'
+" Shows git diff in the gutter
+" https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'
 
-  " show multipanes when editing a COMMIT_EDITMSG
-  Plugin 'rhysd/committia.vim'
+" Adds git commands
+Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
 
-  " Extended % matching for HTML and other languages
-  Plugin 'vim-scripts/matchit.zip'
+" show multipanes when editing a COMMIT_EDITMSG
+Plug 'rhysd/committia.vim'
 
-  " Vim Hard mode
-  " Disables using hjkl multiple times in a row
-  Plugin 'takac/vim-hardtime'
+" Extended % matching for HTML and other languages
+Plug 'vim-scripts/matchit.zip'
 
-  " Reopen files where you left off last time
-  " https://github.com/dietsche/vim-lastplace
-  Plugin 'dietsche/vim-lastplace'
+" Vim Hard mode
+" Disables using hjkl multiple times in a row
+" https://github.com/takac/vim-hardtime
+Plug 'takac/vim-hardtime'
 
-  " Add file manip commands like Remove, Move, Rename, SudoWrite
-  Plugin 'tpope/vim-eunuch'
+" Reopen files where you left off last time
+" https://github.com/dietsche/vim-lastplace
+Plug 'dietsche/vim-lastplace'
 
-  " Dependancy for vim-session
-  Plugin 'xolox/vim-misc'
-  " Save sessions
-  Plugin 'xolox/vim-session'
+" Add file manip commands like Remove, Move, Rename, SudoWrite
+Plug 'tpope/vim-eunuch'
 
-  " Language syntax support
-  Plugin 'tpope/vim-markdown'
-  Plugin 'tpope/vim-git'
+" Save sessions
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 
-  " Javascript Syntax Support
-  Plugin 'othree/yajs.vim' " Javascript Syntax
-  Plugin 'gavocanov/vim-js-indent' " Javascript Indenting
-  Plugin 'mxw/vim-jsx' " JSX Support for React
-  Plugin 'heavenshell/vim-jsdoc' "JSDoc suto-snippets
-  Plugin 'othree/javascript-libraries-syntax.vim' " Extras for javascript Libraries
+" Language syntax support
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-git'
 
-  " PHP Syntax Supoort
-  Plugin 'StanAngeloff/php.vim'
+" Javascript Syntax Support
+Plug 'elzr/vim-json'
+Plug 'othree/yajs.vim'" Javascript Syntax
+Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " Javascript Indenting
+Plug 'mxw/vim-jsx' " JSX Support for React
+Plug 'heavenshell/vim-jsdoc' "JSDoc suto-snippets
+Plug 'othree/javascript-libraries-syntax.vim' " Extras for javascript Libraries
 
-  " PHP Refactor tool
-  " Plugin 'adoy/vim-php-refactoring-toolbox'
+" PHP Syntax Supoort
+" https://github.com/StanAngeloff/php.vim
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 
-  " Color schemes
-  Plugin 'altercation/vim-colors-solarized'
+" PHP Refactor tool
+" https://github.com/adoy/vim-php-refactoring-toolbox
+" Plug 'adoy/vim-php-refactoring-toolbox'
 
-  " Plugins to load on OS X only
-  if has("unix")
-    let s:uname = system("uname -s")
-    if s:uname == "Darwin\n"
-      " Suggestion and Tab completion
-      " Requires a locally-compiled library; see docs. Note this will work
-      " fine on Linux, but disabling there since we mostly code on OS X and it
-      " can be a hassle to compile the dependent libraries.
-      " https://github.com/Valloric/YouCompleteMe
-      Plugin 'Valloric/YouCompleteMe'
-    endif
+" Color schemes
+Plug 'altercation/vim-colors-solarized'
+
+" Plugins to load on OS X only
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    " Suggestion and Tab completion
+    " Requires a locally-compiled library; see docs. Note this will work
+    " fine on Linux, but disabling there since we mostly code on OS X and it
+    " can be a hassle to compile the dependent libraries.
+    " https://github.com/Valloric/YouCompleteMe
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
   endif
-
-  " Enable file type detection. Do this after Vundle calls.
-  call vundle#end()
-  " Enable file type detection.
-  filetype plugin indent on	" required!
 endif
+
+call plug#end()
+
+" Enable file type detection.
+filetype plugin indent on	" required!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS
@@ -191,8 +193,11 @@ set complete-=i
 " Don't assume numbers starting with zero are octal
 set nrformats-=octal
 
+" Time out on key codes but not mappings.
+" Basically this makes terminal Vim work sanely.
+set notimeout
 set ttimeout
-set ttimeoutlen=100
+set ttimeoutlen=10
 
 set incsearch		" incremental searching
 set nohlsearch		" nohighlight matches
@@ -214,7 +219,7 @@ set showmatch		" Show the matching brace
 
 " Controls the number of lines/chars to keep visible before scrolling
 set scrolloff=3
-set sidescrolloff=5
+set sidescrolloff=10
 set sidescroll=1
 set display+=lastline " show the last line that fits in window (vs '@@@@')
 
@@ -281,17 +286,20 @@ let g:netrw_browsex_viewer = 'open'
 
 " Centralize backups, swapfiles and undo history
 set swapfile
-set directory=~/.vim/swaps
+set directory=~/.vim/swaps//
 set backup
-set backupdir=~/.vim/backups
+set backupdir=~/.vim/backups//
 if has('persistent_undo')
   if exists("&undodir")
     set undofile
-    set undodir=~/.vim/undo
+    set undodir=~/.vim/undo//
     set undoreload=10000
   endif
 endif
 set undolevels=10000
+
+" Resize splits when the window is resized
+au VimResized * :wincmd =
 
 " Use relative line numbers
 if exists("&relativenumber")
@@ -353,8 +361,14 @@ if exists('+colorcolumn')
   set colorcolumn=80,120
 endif
 
+" Don't try to highlight lines longer than 800 characters.
+set synmaxcol=800
+
 " Vim-session Config
 let g:session_autosave = 'no'
+
+" vim-json Config
+let g:vim_json_syntax_conceal = 0
 
 " YouCompleteMe Config
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -367,10 +381,11 @@ let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 " Syntastic config
+let g:syntastic_enable_signs = 1 " check if this slows things down
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
-"let g:syntastic_auto_jump = 2         " Jump to syntax errors
+let g:syntastic_auto_jump = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_phpcs_args="--standard=PSR2"
@@ -383,22 +398,14 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_clear_cache_on_exit = 0
 " Use The Silver Searcher if available
 if executable('ag')
-  " Add ag search in vim
-  Plugin 'rking/ag.vim'
-
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
   " Use ag in CtrlP
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --depth 5'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --depth 7'
 
   " Skip caching since ag is so fast
   let g:ctrlp_use_caching = 0
-
-  " open ag.vim
-  nnoremap <leader>a :Ag
 endif
 nmap ; :CtrlPBuffer<CR>
+nmap <silent> <leader>a <Plug>GreperBangWord
 
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -408,6 +415,22 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" Scratch
+command! ScratchToggle call ScratchToggle()
+
+function! ScratchToggle()
+    if exists("w:is_scratch_window")
+        unlet w:is_scratch_window
+        exec "q"
+    else
+        exec "normal! :Sscratch\<cr>\<C-W>L"
+        let w:is_scratch_window = 1
+    endif
+endfunction
+
+nnoremap <silent> <leader><tab> :ScratchToggle<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE (won't see much unless we disable Airline)
@@ -423,6 +446,7 @@ set statusline+=\ [%l\/%L:\%v] "line number and column number
 " Airline.vim customizations
 " Use the poweline fonts to make airline pretty
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPINGS
@@ -455,6 +479,14 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
+noremap <leader>v <C-w>v
+
+" List navigation
+nnoremap <left>  :cprev<cr>zvzz
+nnoremap <right> :cnext<cr>zvzz
+nnoremap <up>    :lprev<cr>zvzz
+nnoremap <down>  :lnext<cr>zvzz
+
 " Key repeat hack for resizing splits, i.e., <C-w>+++- vs <C-w>+<C-w>+<C-w>-
 " see: http://www.vim.org/scripts/script.php?script_id=2223
 nmap <C-w>+ <C-w>+<SID>ws
@@ -468,15 +500,21 @@ nnoremap <script> <SID>ws< <C-w><<SID>ws
 nmap <SID>ws <Nop>
 
 " Tab handling
-"nnoremap <C-t> :tabnew<CR>
+nnoremap <leader>( :tabprev<cr>
+nnoremap <leader>) :tabnext<cr>
+nnoremap <C-t> :tabnew<CR>
 "nnoremap <C-j> :tabprevious<CR>
 "nnoremap <C-k> :tabnext<CR>
-"inoremap <C-t> <Esc>:tabnew<CR>
+inoremap <C-t> <Esc>:tabnew<CR>
 "inoremap <C-j> <Esc>:tabprevious<CR>i
 "inoremap <C-k> <Esc>:tabnext<CR>i
 
 " Allow writing via sudo
 cnoremap w!! w !sudo tee > /dev/null %
+
+" Make crl-a work in command mode
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
 
 " Allow for some common quit/write cmd typos
 command! Q q " Bind :Q to :q
@@ -499,15 +537,17 @@ nmap <C-p> :bprev<CR>
 " LEADER MAPPINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let spacebar double as our leader, for great justice
-nmap <space> <leader>
-xmap <space> <leader>
-nmap <space><space> <leader><leader>
-xmap <space><space> <leader><leader>
+let mapleader = " " " <space>
+let maplocalleader = "\\"
+" nmap <space> <leader>
+" xmap <space> <leader>
+" nmap <space><space> <leader><leader>
+" xmap <space><space> <leader><leader>
 
 " xmap includes Visual mode but not Select mode (which we don't often use, but
 " if we did we'd expect hitting space to replace the selected text with a
 " space char).
-xmap <space> <leader>
+" xmap <space> <leader>
 
 " Reload our .vimrc
 nmap <leader>~ :source ~/.vimrc<CR>:redraw!<CR>:AirlineRefresh<CR>:echo "~/.vimrc reloaded!"<CR>
@@ -634,15 +674,28 @@ augroup Spelling
   autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
 augroup END
 
-" Treat JSON files like JavaScript
-augroup Json
-  autocmd!
-  autocmd BufNewFile,BufRead *.json set ft=javascript
-augroup END
-
 augroup vagrant
   autocmd!
   autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
+" Javascript
+augroup ft_javascript
+    au!
+    " Prettify a hunk of JSON with <localleader>p
+    au FileType javascript nnoremap <buffer> <localleader>p ^vg_:!python -m json.tool<cr>
+    au FileType javascript vnoremap <buffer> <localleader>p :!python -m json.tool<cr>
+augroup END
+
+" }}}
+
+" Vim
+augroup ft_vim
+    au!
+
+    au FileType vim setlocal foldmethod=marker keywordprg=:help
+    au FileType help setlocal textwidth=78
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 
 " Handle SISTEM Managers crazy file types

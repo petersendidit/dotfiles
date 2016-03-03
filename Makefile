@@ -1,6 +1,6 @@
 DIR=~/dotfiles
 
-all: symlinks clone_vundle completion
+all: symlinks install_vimplug completion
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
@@ -14,8 +14,9 @@ symlinks:
 	@ln -sf $(DIR)/.colordiffrc ~/.colordiffrc
 	@ln -sf $(DIR)/bin ~/bin
 
-clone_vundle: symlinks
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+install_vimplug:
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 completion:
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash

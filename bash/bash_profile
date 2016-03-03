@@ -29,3 +29,5 @@ fi
 eval "$(grunt --completion=bash)"
 
 [ -r ~/.extra ] && source ~/.extra
+
+test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.`basename $SHELL`

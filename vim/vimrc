@@ -12,6 +12,9 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
 
+" Allow vim-surround to be repeated by .
+Plug 'tpope/vim-repeat'
+
 " Commentary.vim provides commenting for many languages
 " Use gcc to comment out a line (takes a count), gc to comment out the
 " target of a motion (for example, gcap to comment out a paragraph),

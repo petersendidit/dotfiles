@@ -51,6 +51,10 @@
 	# a.k.a. ‘delete merged’
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
+    # Show the diff and log of the last change for a file
+    # git lastchange package.json
+	lastchange = log -p --follow -n 1
+
 [color]
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)

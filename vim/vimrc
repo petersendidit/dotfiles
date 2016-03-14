@@ -94,10 +94,6 @@ Plug 'honza/vim-snippets'
 " https://github.com/justinj/vim-react-snippets
 Plug 'justinj/vim-react-snippets'
 
-" Tools and environment to make Vim superb for developing with Node.jS
-" https://github.com/moll/vim-node
-Plug 'moll/vim-node'
-
 " Shows git diff in the gutter
 " https://github.com/airblade/vim-gitgutter
 Plug 'airblade/vim-gitgutter'
@@ -130,13 +126,17 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-git'
 
+" Tools and environment to make Vim superb for developing with Node.jS
+" https://github.com/moll/vim-node
+Plug 'moll/vim-node', { 'for': 'javascript' }
+
 " Javascript Syntax Support
-Plug 'elzr/vim-json'
-Plug 'othree/yajs.vim'" Javascript Syntax
+Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }" Javascript Syntax
 Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " Javascript Indenting
-Plug 'mxw/vim-jsx' " JSX Support for React
-Plug 'heavenshell/vim-jsdoc' "JSDoc suto-snippets
-Plug 'othree/javascript-libraries-syntax.vim' " Extras for javascript Libraries
+Plug 'mxw/vim-jsx', { 'for': 'javascript' } " JSX Support for React
+Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' } "JSDoc suto-snippets
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' } " Extras for javascript Libraries
 
 " PHP Syntax Supoort
 " https://github.com/StanAngeloff/php.vim

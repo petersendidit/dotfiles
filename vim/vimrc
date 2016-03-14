@@ -178,8 +178,9 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable     " enable syntax processing
 endif
 
+set smartindent     " make indenting better
 set autoindent		" preserve indent level on newlines
-set noexpandtab		" use tabs, not spaces
+set expandtab		" use spaces, not tabs
 set tabstop=4		" a tab is 4 spaces
 set shiftwidth=4	" an autoindent (with <<) is 4 spaces
 set softtabstop=4	" tabwidth in insert mode

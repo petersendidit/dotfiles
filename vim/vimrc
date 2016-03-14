@@ -559,6 +559,9 @@ let maplocalleader = "\\"
 " Reload our .vimrc
 nmap <leader>~ :source ~/.vimrc<CR>:redraw!<CR>:AirlineRefresh<CR>:echo "~/.vimrc reloaded!"<CR>
 
+" Open our .vimrc
+nmap <Leader>~~ :e $MYVIMRC<CR>
+
 " Open file
 nmap <leader>o :CtrlP<CR>
 

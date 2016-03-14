@@ -574,6 +574,9 @@ nmap <leader>q :bd<CR>
 " Toggle spelling
 nmap <leader>s :set invspell<CR>:set spell?<CR>
 
+" Fix Spelling
+nnoremap <Leader>fs 1z=
+
 " Toggle wrap
 nmap <leader>W :set invwrap<CR>:set wrap?<CR>
 

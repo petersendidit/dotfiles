@@ -15,11 +15,23 @@
 	sm = show-merges
 	st = status
 	s = status -s
-	undo = reset --soft HEAD^
+
+    # Tools for iterative work
+    save = "!git add -A && git commit -m 'SAVEPOINT'"
+    wip = "commit -am 'WIP'"
+	undo = reset HEAD~1 --mixed
+    amend = commit -a --amend
+
+    # Fix commits made to wrong branch
+    # http://haacked.com/archive/2015/06/29/git-migrate/
+    migrate = "!f(){ CURRENT=$(git symbolic-ref --short HEAD); git checkout -b $1 && git branch --force $CURRENT ${3-'$CURRENT@{u}'} && git rebase --onto ${2-master} $CURRENT; }; f"
+
+    # Mac Diff tool http://www.kaleidoscopeapp.com
 	ksdiff = difftool -y -t Kaleidoscope
+
+    # Short log tools
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	dmremote = push origin --delete
 
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -49,7 +61,7 @@
 
 	# Remove branches that have already been merged with master
 	# a.k.a. ‘delete merged’
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    dm = "!git branch --merged | grep -v '\\*' | grep -v master | grep -v development | xargs -n 1 git branch -d"
 
     # Show the diff and log of the last change for a file
     # git lastchange package.json

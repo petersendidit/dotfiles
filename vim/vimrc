@@ -122,6 +122,9 @@ Plug 'dietsche/vim-lastplace'
 " Add file manip commands like Remove, Move, Rename, SudoWrite
 Plug 'tpope/vim-eunuch'
 
+" Easier agrument wrapping
+Plug 'FooSoft/vim-argwrap'
+
 " Save sessions
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 
@@ -386,6 +389,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Note that it's easier to navigate the suggestions with C-n/C-p anyway
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+" Argwrap config
+nnoremap <silent> <leader>a :ArgWrap<CR>
+let g:argwrap_tail_comma = 1
 
 " Gitgutter config
 let g:gitgutter_sign_column_always = 1

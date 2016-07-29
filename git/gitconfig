@@ -82,6 +82,15 @@
 [difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 
+[diff]
+
+	# Detect copies as well as renames
+	renames = copies
+	# (git 2.9+) Set this option to `true` to enable an experimental heuristic that
+	# shifts the hunk boundary in an attempt to make the resulting
+	# patch easier to read.
+	compactionHeuristic = true
+
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
@@ -122,3 +131,13 @@
 
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
+
+[push]
+	default = simple
+
+[commit]
+     # https://help.github.com/articles/signing-commits-using-gpg/
+    gpgsign = true
+
+[user]
+	useconfigonly = true

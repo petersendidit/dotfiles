@@ -153,6 +153,9 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " https://github.com/adoy/vim-php-refactoring-toolbox
 " Plug 'adoy/vim-php-refactoring-toolbox'
 
+" Emoji! 😄
+Plug 'junegunn/vim-emoji'
+
 " Color schemes
 Plug 'altercation/vim-colors-solarized'
 
@@ -390,6 +393,9 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Note that it's easier to navigate the suggestions with C-n/C-p anyway
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+" easier emojis!
+set completefunc=emoji#complete
 
 " Argwrap config
 nnoremap <silent> <leader>a :ArgWrap<CR>

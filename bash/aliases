@@ -50,10 +50,11 @@ alias svnl="svn log -l5"
 alias svndp="svn diff --diff-cmd=diff | pbcopy"
 
 # Quick path stuff
+alias projects="cd ~/projects/"
+alias manager="cd ~/projects/alchemy/git/manager/"
+alias courseplayer="cd ~/projects/alchemy/git/CoursePlayer"
 alias dp="cd /web/sb/dp/"
 alias p="cd -P /web/sb/dp/public"
-alias rrick="cd -P /web/sb/rrick/public"
-alias izagnitko="cd -P /web/sb/izagnitko/public"
 #Alchemy stuff
 #alias alch="ssh -t fs01dev '~/bin/screenstart'"
 alias alch="ssh -t sb.dfw '~/bin/screenstart'"

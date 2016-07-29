@@ -138,11 +138,12 @@ Plug 'moll/vim-node', { 'for': 'javascript' }
 
 " Javascript Syntax Support
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'othree/yajs.vim', { 'for': 'javascript' }" Javascript Syntax
-Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' } " Javascript Indenting
-Plug 'mxw/vim-jsx', { 'for': 'javascript' } " JSX Support for React
-Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript' } "JSDoc suto-snippets
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' } " Extras for javascript Libraries
+" Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] } " Javascript Indenting
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] } " JSX Support for React
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'] } "JSDoc suto-snippets
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] } " Extras for javascript Libraries
 
 " PHP Syntax Supoort
 " https://github.com/StanAngeloff/php.vim
@@ -406,6 +407,9 @@ let g:syntastic_auto_jump = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_php_phpcs_args="--standard=PSR2"
+
+" JSDoc config
+let g:jsdoc_enable_es6 = 1
 
 " ctrlp config
 let g:ctrlp_map = '<Leader>t'

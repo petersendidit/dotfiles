@@ -20,3 +20,9 @@ install_vimplug:
 
 completion:
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+
+gitTools:
+	git clone git@github.com:paulirish/git-recent.git $(DIR)/git-clones/git-recent/
+	ln -s $(DIR)/git-clones/git-recent/git-recent $(DIR)/bin/
+	git clone git@github.com:paulirish/git-open.git $(DIR)/git-clones/git-open/
+	ln -s $(DIR)/git-clones/git-open/git-open $(DIR)/bin/

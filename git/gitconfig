@@ -1,20 +1,14 @@
 [alias]
 	up = pull
-	br = branch
+    p = push
 	ci = commit
 	co = checkout
-	df = diff
-	ds = diff --staged
-	g = grep -I
-	lg = log -p
-	pb = publish-branch
-	pp = !"echo 'Pull'; git pull; echo 'Push'; git push"
-	rb = rbranch
-	rc = rank-contributors
-	rv = review
-	sm = show-merges
+	df = diff --color --color-words --abbrev
+	ds = diff --color --color-words --staged
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 	st = status
 	s = status -s
+
 
     # Tools for iterative work
     save = "!git add -A && git commit -m 'SAVEPOINT'"
@@ -28,10 +22,6 @@
 
     # Mac Diff tool http://www.kaleidoscopeapp.com
 	ksdiff = difftool -y -t Kaleidoscope
-
-    # Short log tools
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -67,23 +57,38 @@
     # git lastchange package.json
 	lastchange = log -p --follow -n 1
 
+    # based on: https://gist.github.com/intel352/9761288
+    show-closest-branch = rev-parse --abbrev-ref HEAD
+    # based on: http://stackoverflow.com/questions/3161204/find-the-parent-branch-of-a-git-branch
+    show-closest-parent-branch = !"git show-branch -a --no-color 2> /dev/null | awk -F '[]^~[]' -v current_branch=`git show-closest-branch 2> /dev/null || true` 'BEGIN { rc=1 ; if ( length( current_branch ) == 0 ) { exit } } ( ( index( $1, \"*\" ) > 0 ) && ( length( $2 ) > 0 ) && ( $2 != current_branch ) ) { print $2 ; rc=0 ; exit } END { exit rc }'"
+    # short versions
+    #cb = !git show-closest-branch
+    #pb = !git show-closest-parent-branch
+
+    # open unmerged files in vim
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+    # add all the unmerged files
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
     # List aliases
     aliases = config --get-regexp alias
 
-[color]
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	 ui = auto
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
 
-[merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+[pager]
+    # insanely beautiful diffs ==> brew install diff-so-fancy
+    diff = diff-so-fancy | less --tabs=4 -RFX
+    show = diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+    diffFilter = "diff-so-fancy"
 
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 
 [diff]
-
 	# Detect copies as well as renames
 	renames = copies
 	# (git 2.9+) Set this option to `true` to enable an experimental heuristic that
@@ -91,10 +96,34 @@
 	# patch easier to read.
 	compactionHeuristic = true
 
-[core]
-	excludesfile = ~/.gitignore_global
-	editor = vim
+[color]
+    ui = auto
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
 
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+
+# correct typos
 [help]
 	autocorrect = 1
 
@@ -115,25 +144,23 @@
   insteadOf = "git://github.com/petersendidit/"
 
 # URL shorthands
-
 [url "git@github.com:"]
 	insteadOf = "gh:"
+	insteadOf = "git://github.com/"
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-	insteadOf = "github:"
-
+	pushInsteadOf = "https://github.com/"
 [url "git@gist.github.com:"]
 	insteadOf = "gst:"
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-	insteadOf = "gist:"
+	pushInsteadOf = "https://gist.github.com/"
 
 [push]
 	default = simple
+
+[fetch]
+    prune = true
 
 [commit]
      # https://help.github.com/articles/signing-commits-using-gpg/

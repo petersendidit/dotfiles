@@ -102,7 +102,9 @@ function f_notifyme {
   LAST_EXIT_CODE=$?
   CMD=$(fc -ln -1)
   # No point in waiting for the command to complete
-  notifyme "$CMD" "$LAST_EXIT_CODE" &
+  if hash notifyme 2>/dev/null; then
+    notifyme "$CMD" "$LAST_EXIT_CODE" &
+  fi
 }
 
 PS1='$(f_notifyme)'$PS1

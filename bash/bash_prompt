@@ -97,14 +97,3 @@ function parse_git_branch() {
 #Set how prompt looks
 #export PS1="\u@localhost: "
 PS1="\[${BOLD}${CYAN}\]\u \[$BASE0\]at \[$CYAN\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$YELLOW\]\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
-
-function f_notifyme {
-  LAST_EXIT_CODE=$?
-  CMD=$(fc -ln -1)
-  # No point in waiting for the command to complete
-  if hash notifyme 2>/dev/null; then
-    notifyme "$CMD" "$LAST_EXIT_CODE" &
-  fi
-}
-
-PS1='$(f_notifyme)'$PS1

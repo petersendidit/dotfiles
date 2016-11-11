@@ -1,10 +1,14 @@
 #!/bin/sh
 
 AUTOSSH_PIDFILE="/tmp/alchemy_autossh.pid"
+export AUTOSSH_PIDFILE
 
 if [ "$1" == "start" ]
 then
-	ID=`cat "$AUTOSSH_PIDFILE"`
+	if [ -e "$AUTOSSH_PIDFILE" ]; then
+        ID=`cat "$AUTOSSH_PIDFILE"`
+    fi
+
 	if [ -e "$AUTOSSH_PIDFILE" ] && ps -p $ID > /dev/null; then
 		echo "Tunnel already running"
 	else

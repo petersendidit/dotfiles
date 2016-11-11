@@ -426,7 +426,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 " Use The Silver Searcher if available
 if executable('ag')
   " Use ag in CtrlP
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --depth 7'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g "" --depth 15'
 
   " Skip caching since ag is so fast
   let g:ctrlp_use_caching = 0
@@ -659,6 +659,10 @@ nnoremap <Leader>t: :Tabularize symbol<CR>
 vnoremap <Leader>t: :Tabularize symbol<CR>
 nnoremap <Leader>t, :Tabularize comma<CR>
 vnoremap <Leader>t, :Tabularize comma<CR>
+nnoremap <Leader>t/ :Tabularize / \/\/<CR>
+vnoremap <Leader>t/ :Tabularize / \/\/<CR>
+nnoremap <Leader>t> :Tabularize /=>/<CR>
+vnoremap <Leader>t> :Tabularize /=>/<CR>
 
 " Toggle numbers
 nmap <leader>n :setlocal number!<CR><bar>:setlocal relativenumber!<CR>

@@ -20,6 +20,7 @@ install_vimplug:
 
 completion:
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+	curl -L https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/bash/docker-compose -o /usr/local/etc/bash_completion.d/docker-compose
 
 gitTools:
 	git clone git@github.com:paulirish/git-recent.git $(DIR)/git-clones/git-recent/

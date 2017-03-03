@@ -29,9 +29,6 @@ Plug 'tpope/vim-commentary'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
 
-" Add a scratch pad
-Plug 'vim-scripts/scratch.vim'
-
 " Autoclose brackets
 Plug 'MartinLafreniere/vim-PairTools'
 

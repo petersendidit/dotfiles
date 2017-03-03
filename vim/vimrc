@@ -119,6 +119,9 @@ Plug 'tpope/vim-eunuch'
 " Easier agrument wrapping
 Plug 'FooSoft/vim-argwrap'
 
+" add gS to smart split lines like comma lists and html tags
+Plug 'AndrewRadev/splitjoin.vim'
+
 " Save sessions
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 

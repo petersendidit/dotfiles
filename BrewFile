@@ -1,0 +1,64 @@
+# Install command-line tools using Homebrew.
+
+# Install GNU core utilities (those that come with macOS are outdated).
+# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+brew 'coreutils'
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
+brew 'findutils'
+# Install GNU `sed`, overwriting the built-in `sed`.
+brew 'gnu-sed' #--with-default-names
+# Install Bash 4.
+# Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before
+# running `chsh`.
+brew 'bash'
+tap 'homebrew/versions'
+brew 'bash-completion2'
+
+# Install `wget` with IRI support.
+brew 'wget', args: ['with-iri']
+
+# Install more recent versions of some macOS tools.
+brew 'vim', args: ['override-system-vi']
+brew 'homebrew/dupes/grep'
+brew 'homebrew/dupes/openssh'
+brew 'homebrew/dupes/screen'
+brew 'homebrew/php/php56', args: ['with-gmp']
+brew 'homebrew/php/composer'
+
+# Install font tools.
+tap 'bramstein/webfonttools'
+brew 'sfnt2woff'
+brew 'sfnt2woff-zopfli'
+brew 'woff2'
+
+# Install other useful binaries.
+brew 'ack'
+brew 'autossh'
+brew 'diff-so-fancy'
+brew 'dark-mode'
+brew 'fzf'
+brew 'gh'
+brew 'git'
+brew 'git-extras'
+brew 'git-lfs'
+brew 'httpie'
+brew 'imagemagick', args:['with-webp']
+brew 'keybase'
+brew 'lynx'
+brew 'mycli'
+brew 'neovim'
+
+brew 'pigz'
+brew 'pv'
+brew 'rename'
+brew 'speedtest_cli'
+brew 'ssh-copy-id'
+brew 'the_silver_searcher'
+brew 'subversion'
+brew 'testssl'
+brew 'tree'
+brew 'universal-ctags'
+brew 'vbindiff'
+brew 'webkit2png'
+brew 'zopfli'

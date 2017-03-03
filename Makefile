@@ -1,6 +1,6 @@
 DIR=~/dotfiles
 
-all: symlinks install_vimplug completion
+all: symlinks install_vimplug completion install_base16shell
 	@echo "Reminder: Vim plugins are managed within Vim with Vundle."
 
 symlinks:
@@ -17,6 +17,9 @@ symlinks:
 install_vimplug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+install_base16shell:
+	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 completion:
 	curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash

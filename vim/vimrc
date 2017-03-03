@@ -129,18 +129,42 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-git'
 
+" Javascript Syntax Support
+Plug 'elzr/vim-json'
+
+let s:js_mode = 'othree'
+if s:js_mode ==# 'pangloss'
+  " PANGLOSS MODE
+  " 1.  Preferring pangloss for now since I like the included indentexpr
+  "     it also has a node ftdetect, but that is the same as in
+  "     moll/vim-node
+  " 2.  After syntax, ftplugin, indent for JSX
+  Plug 'pangloss/vim-javascript'
+        \| Plug 'mxw/vim-jsx'
+  let g:javascript_plugin_jsdoc = 1
+
+elseif s:js_mode ==# 'othree'
+  " YAJS MODE
+  " 1.  yajs.vim highlighting is a little more robust than the pangloss one.
+  " 2.  The libraries syntax adds unique highlighting for
+  "     jQuery,backbone,etc. and I've confirmed it is only compatible with
+  "     yajs.vim as of 2016-11-03.
+  " 3.  es.next support has possible jsx indent conflicts
+  "     @see https://github.com/othree/es.next.syntax.vim/issues/5
+  Plug 'othree/yajs.vim'
+        \| Plug 'othree/javascript-libraries-syntax.vim'
+        \| Plug 'othree/es.next.syntax.vim'
+        \| Plug 'mxw/vim-jsx'
+endif
+
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] } " Javascript Indenting
+" <leader>pd on function to insert jsdoc above
+Plug 'heavenshell/vim-jsdoc' "JSDoc suto-snippets
+" Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] } " Extras for javascript Libraries
+
 " Tools and environment to make Vim superb for developing with Node.jS
 " https://github.com/moll/vim-node
-Plug 'moll/vim-node', { 'for': 'javascript' }
-
-" Javascript Syntax Support
-Plug 'elzr/vim-json', { 'for': 'json' }
-" Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']  }" Javascript Syntax
-Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'javascript.jsx'] } " Javascript Indenting
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx'] } " JSX Support for React
-Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascript.jsx'] } "JSDoc suto-snippets
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] } " Extras for javascript Libraries
+Plug 'moll/vim-node'
 
 " PHP Syntax Supoort
 " https://github.com/StanAngeloff/php.vim

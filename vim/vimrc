@@ -179,6 +179,8 @@ Plug 'junegunn/vim-emoji'
 
 " Color schemes
 Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
 
 " Plugins to load on OS X only
 if has("unix")
@@ -312,9 +314,13 @@ endif
 if $TERM =~ "-256color"
   set t_Co=256
 endif
-set background=dark
-silent! colorscheme solarized
-let g:airline_theme='solarized'		" Colors for vim-airline
+
+" this matchs the color scheme with the shell scheme
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+let g:airline_theme='base16_tomorrow'		" Colors for vim-airline
 
 " Allow gx to open urls in the browser
 let g:netrw_browsex_viewer = 'open'

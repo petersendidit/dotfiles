@@ -126,7 +126,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 
 " Language syntax support
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-git'
 
 " Tools and environment to make Vim superb for developing with Node.jS

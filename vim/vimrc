@@ -168,7 +168,7 @@ Plug 'moll/vim-node'
 
 " PHP Syntax Supoort
 " https://github.com/StanAngeloff/php.vim
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'StanAngeloff/php.vim'
 
 " PHP Refactor tool
 " https://github.com/adoy/vim-php-refactoring-toolbox

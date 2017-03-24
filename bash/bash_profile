@@ -35,6 +35,18 @@ fi
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+# run powerline if installed
+if command -v powerline-daemon > /dev/null; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    . /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+fi
+
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+    . /usr/local/etc/profile.d/z.sh
+fi;
+
 # grunt completion
 eval "$(grunt --completion=bash)"
 

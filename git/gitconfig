@@ -1,20 +1,14 @@
 [alias]
-	up = pull
-    p = push
-	ci = commit
-	co = checkout
 	df = diff --color --color-words --abbrev
 	ds = diff --color --color-words --staged
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-	st = status
 	s = status -s
-
+    patch = !"git --no-pager diff --no-color"
 
     # Tools for iterative work
     save = "!git add -A && git commit -m 'SAVEPOINT'"
     wip = "commit -am 'WIP'"
 	undo = reset HEAD~1 --mixed
-    amend = commit -a --amend
 
     # Fix commits made to wrong branch
     # http://haacked.com/archive/2015/06/29/git-migrate/
@@ -28,7 +22,8 @@
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
-	branches = branch -a
+	branches = branch -l
+	branchesall = branch -a
 	remotes = remote -v
 
 	# Ammend the currently staged files to the latest commit
@@ -51,7 +46,7 @@
 
 	# Remove branches that have already been merged with master
 	# a.k.a. ‘delete merged’
-    dm = "!git branch --merged | grep -v '\\*' | grep -v master | grep -v development | xargs -n 1 git branch -d"
+    dm = "!git branch --no-color --merged | grep -v '\\*' | grep -v master | grep -v development | xargs -n 1 git branch -d"
 
     # Show the diff and log of the last change for a file
     # git lastchange package.json

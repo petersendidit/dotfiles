@@ -692,12 +692,24 @@ vnoremap <Leader>t> :Tabularize /=>/<CR>
 " Toggle numbers
 nmap <leader>n :setlocal number!<CR><bar>:setlocal relativenumber!<CR>
 
+" use leader to interact with the system clipboard {{{
+nnoremap <Leader>p "*]p
+nnoremap <Leader>P "*]P
+
+nnoremap <Leader>y :y*<cr>
+nnoremap <Leader>c ^"*c$
+nnoremap <Leader>d ^"*d$
+
+vnoremap <Leader>y "*y
+vnoremap <Leader>c "*c
+vnoremap <Leader>d "*d
+
+" }}}
+
 " Mac OS X-only mappings
 if has("unix")
   let s:uname = system("uname -s")
   if s:uname == "Darwin\n"
-    " Set clipboard to system clipboard
-    set clipboard=unnamed
     " Search for word under cursor in Dash.app
     nmap <leader>d <Plug>DashSearch
     nmap <leader>D <Plug>DashGlobalSearch

@@ -143,6 +143,13 @@ if s:js_mode ==# 'pangloss'
         \| Plug 'mxw/vim-jsx'
   let g:javascript_plugin_jsdoc = 1
 
+  " Fix jsx end tags being different color
+  " https://github.com/mxw/vim-jsx/issues/124
+  hi Tag        ctermfg=04
+  hi xmlTag     ctermfg=04
+  hi xmlTagName ctermfg=04
+  hi xmlEndTag  ctermfg=04
+
 elseif s:js_mode ==# 'othree'
   " YAJS MODE
   " 1.  yajs.vim highlighting is a little more robust than the pangloss one.

@@ -104,6 +104,9 @@ Plug 'rhysd/committia.vim'
 " Extended % matching for HTML and other languages
 Plug 'vim-scripts/matchit.zip'
 
+" Better visual star searching
+Plug 'bronson/vim-visual-star-search'
+
 " Vim Hard mode
 " Disables using hjkl multiple times in a row
 " https://github.com/takac/vim-hardtime

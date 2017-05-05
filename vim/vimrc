@@ -204,9 +204,6 @@ endif
 
 call plug#end()
 
-" Enable file type detection.
-filetype plugin indent on	" required!
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS
 " tpope/vim-sensible is inlined here & used as a baseline

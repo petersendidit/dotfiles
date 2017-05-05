@@ -132,7 +132,7 @@ Plug 'tpope/vim-git'
 " Javascript Syntax Support
 Plug 'elzr/vim-json'
 
-let s:js_mode = 'othree'
+let s:js_mode = 'pangloss'
 if s:js_mode ==# 'pangloss'
   " PANGLOSS MODE
   " 1.  Preferring pangloss for now since I like the included indentexpr

@@ -772,6 +772,7 @@ augroup markdown
   autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown
   autocmd FileType markdown call RD_SetupWrapping()
   autocmd FileType markdown setlocal ts=4 sts=4 sw=4
+  autocmd FileType markdown setlocal spell spelllang=en_us
 augroup END
 
 " enable spell checking on certain files

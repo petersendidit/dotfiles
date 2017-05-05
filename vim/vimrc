@@ -692,6 +692,22 @@ vnoremap <Leader>t> :Tabularize /=>/<CR>
 " Toggle numbers
 nmap <leader>n :setlocal number!<CR><bar>:setlocal relativenumber!<CR>
 
+" D deletes to the end of the line, and Y yanks to end of line
+nnoremap D d$
+nnoremap Y y$
+
+" have x (removes single character) not go into the default registry
+nnoremap x "_x
+" Make X an operator that removes without placing text in the default registry
+nmap X "_d
+nmap XX "_dd
+vmap X "_d
+vmap x "_d
+
+" when changing text, don't put the replaced text into the default registry
+nnoremap c "_c
+vnoremap c "_c
+
 " use leader to interact with the system clipboard {{{
 nnoremap <Leader>p "*]p
 nnoremap <Leader>P "*]P

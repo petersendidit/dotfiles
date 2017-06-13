@@ -447,6 +447,8 @@ let g:gitgutter_sign_column_always = 1
 " Ale config
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
 
 " JSDoc config
 let g:jsdoc_enable_es6 = 1

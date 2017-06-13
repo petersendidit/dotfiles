@@ -7,6 +7,13 @@ else
 	export EDITOR=`which vi`
 fi
 
+if which nvim > /dev/null;
+then
+	export EDITOR=nvim
+	alias vi=nvim
+	alias vim=nvim
+fi
+
 # Needed for svn
 unset USERNAME
 # Larger bash history (default is 500)

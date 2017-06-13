@@ -7,7 +7,7 @@
 
     # Tools for iterative work
     save = "!git add -A && git commit -m 'SAVEPOINT'"
-    wip = "commit -am 'WIP'"
+    wip = "commit -am 'WIP AM-0000'"
 	undo = reset HEAD~1 --mixed
 
     # Fix commits made to wrong branch

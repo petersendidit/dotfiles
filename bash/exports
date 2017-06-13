@@ -1,5 +1,5 @@
 # Editor
-if which vim > /dev/null;
+if type vim >/dev/null 2>/dev/null;
 then
 	export EDITOR=vim
 	alias vi=vim
@@ -7,7 +7,7 @@ else
 	export EDITOR=`which vi`
 fi
 
-if which nvim > /dev/null;
+if type nvim >/dev/null 2>/dev/null;
 then
 	export EDITOR=nvim
 	alias vi=nvim

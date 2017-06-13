@@ -9,14 +9,14 @@ done
 unset file
 
 # bash completion.
-if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+if type brew >/dev/null 2>/dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
 	source "$(brew --prefix)/share/bash-completion/bash_completion";
 elif [ -f /etc/bash_completion ]; then
     source /etc/bash_completion;
 fi;
 
 # homebrew completion
-if which brew > /dev/null; then
+if type brew >/dev/null 2>/dev/null; then
     source "$(brew --prefix)/etc/bash_completion.d/brew"
 fi;
 

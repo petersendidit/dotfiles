@@ -39,4 +39,4 @@ export CLICOLOR=1
 export AUTOSSH_PIDFILE=/tmp/autossh.pid
 
 # search current directory, current include dir, home directory, and projects folder
-export CDPATH=".:./Include:~"
+export CDPATH=".:./Include:~":~/project/:~/projects/alchemy/git

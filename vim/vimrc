@@ -191,7 +191,7 @@ Plug 'StanAngeloff/php.vim'
 
 " PHP Refactor tool
 " https://github.com/adoy/vim-php-refactoring-toolbox
-" Plug 'adoy/vim-php-refactoring-toolbox'
+Plug 'adoy/vim-php-refactoring-toolbox'
 
 " Emoji! 😄
 Plug 'junegunn/vim-emoji'

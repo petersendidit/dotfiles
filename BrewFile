@@ -44,7 +44,6 @@ brew 'git-extras'
 brew 'git-lfs'
 brew 'httpie'
 brew 'imagemagick', args:['with-webp']
-brew 'keybase'
 brew 'lynx'
 brew 'mycli'
 brew 'neovim'

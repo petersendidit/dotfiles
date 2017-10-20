@@ -130,6 +130,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'FooSoft/vim-argwrap'
 
 " add gS to smart split lines like comma lists and html tags
+" gJ to join
 Plug 'AndrewRadev/splitjoin.vim'
 
 " Save sessions

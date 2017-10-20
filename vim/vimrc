@@ -637,6 +637,8 @@ nmap <C-e> :e#<CR>
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 
+" Close buffer but not the split
+nmap ,d :b#<bar>bd#<bar>b<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LEADER MAPPINGS

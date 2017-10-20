@@ -142,8 +142,14 @@ Plug 'tpope/vim-git'
 " Javascript Syntax Support
 Plug 'elzr/vim-json'
 
-let s:js_mode = 'pangloss'
-if s:js_mode ==# 'pangloss'
+let s:js_mode = 'vim-jsx-improve'
+if s:js_mode ==# 'vim-jsx-improve'
+  " Combines 'pangloss/vim-javascript' and 'MaxMEllon/vim-jsx-pretty'
+  " with a few tweaks
+  " Plug 'chemzqm/vim-jsx-improve'
+  Plug 'pangloss/vim-javascript'
+  Plug 'maxmellon/vim-jsx-pretty'
+elseif s:js_mode ==# 'pangloss'
   " PANGLOSS MODE
   " 1.  Preferring pangloss for now since I like the included indentexpr
   "     it also has a node ftdetect, but that is the same as in

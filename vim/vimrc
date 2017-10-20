@@ -29,6 +29,10 @@ Plug 'tpope/vim-commentary'
 " Pairs of handy bracket mappings
 Plug 'tpope/vim-unimpaired'
 
+" Better substitution
+" :%Subvert/facilit{y,ies}/building{,s}/g
+Plug 'tpope/vim-abolish'
+
 " Autoclose brackets
 Plug 'MartinLafreniere/vim-PairTools'
 

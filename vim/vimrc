@@ -766,7 +766,7 @@ vnoremap <Leader>d "*d
 
 " place whole file on the system clipboard (and return cursor to where it was)
 " nmap <Leader>a maggVG"*y`a
-nnoremap <Leader>a :%y*<cr>
+" nnoremap <Leader>a :%y*<cr>
 
 " highlight last inserted text
 nnoremap gV `[v`]

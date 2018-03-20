@@ -35,10 +35,6 @@ vbell off
 #bindkey -m "^[[5;2~" stuff ^b
 #bindkey -m "^[[6;2~" stuff ^f
 #
-screen -t mysql 0
 screen -t sandbox 1
 screen -t sandbox 2
 screen -t sandbox 3
-screen -t qa 4 ssh qa
-screen -t ord 5 ssh ord
-screen -t ord 6 ssh ord

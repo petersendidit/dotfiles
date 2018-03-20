@@ -272,6 +272,10 @@ set title           " Show the filename in the window titlebar
 
 set wildmenu 		" use tab completion on command line
 
+" let spacebar double as our leader, for great justice
+let mapleader = " " " <space>
+let maplocalleader = "\\"
+
 " Better tab completion
 set wildmode=longest,list
 
@@ -647,9 +651,6 @@ nmap ,d :b#<bar>bd#<bar>b<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " LEADER MAPPINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let spacebar double as our leader, for great justice
-let mapleader = " " " <space>
-let maplocalleader = "\\"
 " nmap <space> <leader>
 " xmap <space> <leader>
 " nmap <space><space> <leader><leader>

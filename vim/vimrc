@@ -455,7 +455,11 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 let g:argwrap_tail_comma = 1
 
 " Gitgutter config
-set signcolumn=yes
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
 
 " Ale config
 let g:airline#extensions#ale#enabled = 1

@@ -778,13 +778,6 @@ if has("unix")
     " Search for word under cursor in Dash.app
     nmap <leader>d <Plug>DashSearch
     nmap <leader>D <Plug>DashGlobalSearch
-
-    " Use Marked.app to preview Markdown files...
-    " http://stackoverflow.com/questions/9212340/is-there-a-vim-plugin-for-preview-markdown-file
-    function! s:setupMarkup()
-      nmap <leader>M :silent !open -a Marked.app '%:p'<CR>:redraw!<CR>
-    endfunction
-    autocmd BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
   endif
 endif
 

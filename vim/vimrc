@@ -1,3 +1,4 @@
+" vim: set foldmethod=marker foldlevel=0 nomodeline:
 " Must of this has been resourced from main of the github dotfile repos
 " lots used from: https://github.com/rdlugosz/dotfiles/blob/master/vimrc
 set nocompatible		" be iMproved
@@ -45,6 +46,7 @@ Plug 'MartinLafreniere/vim-PairTools'
 " Plug 'ctrlpvim/ctrlp.vim'
 
 " FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Tabular.vim is a plugin that aligns text by some pattern, e.g.:
@@ -499,13 +501,37 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " nmap ; :CtrlPBuffer<CR>
 " nmap <silent> <leader>a <Plug>GreperBangWord
 
-" FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
-set rtp+=/usr/local/opt/fzf
-set rtp+=~/.fzf
-nmap ; :Buffers<CR>
+" ============================================================================
+" FZF {{{
+" ============================================================================
+" (replaces Ctrl-P, FuzzyFinder and Command-T)
+
+" Hide statusline of terminal buffer
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+nnoremap <silent> <Leader><Leader> :Files<CR>
+nnoremap <silent> <Leader><Enter>  :Buffers<CR>
 nmap <Leader>r :Tags<CR>
-nmap <Leader>t :Files<CR>
 nmap <Leader>a :Ag<CR>
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+" }}}
+
 
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red

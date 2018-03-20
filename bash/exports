@@ -1,17 +1,17 @@
 # Editor
-if type vim >/dev/null 2>/dev/null;
+if type nvim >/dev/null 2>/dev/null;
 then
-	export EDITOR=vim
+	export VISUAL=nvim
+    export EDITOR="$VISUAL"
+	alias vi=nvim
+	alias vim=nvim
+else if type vim >/dev/null 2>/dev/null;
+then
+	export VISUAL=vim
+    export EDITOR="$VISUAL"
 	alias vi=vim
 else
 	export EDITOR=`which vi`
-fi
-
-if type nvim >/dev/null 2>/dev/null;
-then
-	export EDITOR=nvim
-	alias vi=nvim
-	alias vim=nvim
 fi
 
 # Needed for svn

@@ -70,7 +70,6 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = vim
 
 [pager]
     # insanely beautiful diffs ==> brew install diff-so-fancy

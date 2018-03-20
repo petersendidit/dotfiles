@@ -516,21 +516,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" Scratch
-command! ScratchToggle call ScratchToggle()
-
-function! ScratchToggle()
-    if exists("w:is_scratch_window")
-        unlet w:is_scratch_window
-        exec "q"
-    else
-        exec "normal! :Sscratch\<cr>\<C-W>L"
-        let w:is_scratch_window = 1
-    endif
-endfunction
-
-nnoremap <silent> <leader><tab> :ScratchToggle<cr>
-
 " Autocreate directoris on save
 " http://travisjeffery.com/b/2011/11/saving-files-in-nonexistent-directories-with-vim/
 augroup vimrc-auto-mkdir

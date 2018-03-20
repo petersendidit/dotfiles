@@ -166,5 +166,9 @@
 
 [user]
 	useconfigonly = true
+
 [branch]
 	autosetuprebase = always
+
+[include]
+    path = .localgitconfig

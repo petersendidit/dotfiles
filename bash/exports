@@ -5,7 +5,7 @@ then
     export EDITOR="$VISUAL"
 	alias vi=nvim
 	alias vim=nvim
-else if type vim >/dev/null 2>/dev/null;
+elif type vim >/dev/null 2>/dev/null;
 then
 	export VISUAL=vim
     export EDITOR="$VISUAL"
@@ -39,4 +39,4 @@ export CLICOLOR=1
 export AUTOSSH_PIDFILE=/tmp/autossh.pid
 
 # search current directory, current include dir, home directory, and projects folder
-export CDPATH=".:./Include:~":~/project/:~/projects/alchemy/git
+export CDPATH=".:./Include:~":~/project/:~/projects/alchemy/git:~/projects/personal

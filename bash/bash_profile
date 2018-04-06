@@ -59,9 +59,6 @@ if command -v fzf > /dev/null && command -v ag > /dev/null; then
   '
 fi
 
-# grunt completion
-eval "$(grunt --completion=bash)"
-
 [ -r ~/.extra ] && source ~/.extra
 
 test -e ${HOME}/.iterm2_shell_integration.bash && source ${HOME}/.iterm2_shell_integration.`basename $SHELL`

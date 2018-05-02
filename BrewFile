@@ -19,12 +19,12 @@ brew 'bash-completion2'
 brew 'wget', args: ['with-iri']
 
 # Install more recent versions of some macOS tools.
-brew 'vim', args: ['override-system-vi']
-brew 'homebrew/dupes/grep'
-brew 'homebrew/dupes/openssh'
-brew 'homebrew/dupes/screen'
-brew 'homebrew/php/php56', args: ['with-gmp']
-brew 'homebrew/php/composer'
+# brew 'vim', args: ['override-system-vi']
+brew 'grep'
+brew 'openssh'
+brew 'screen'
+brew 'php@5.6', args: ['with-gmp']
+brew 'composer'
 
 # Install font tools.
 tap 'bramstein/webfonttools'
@@ -38,6 +38,7 @@ brew 'autossh'
 brew 'diff-so-fancy'
 brew 'dark-mode'
 brew 'fzf'
+brew 'gpg'
 brew 'gh'
 brew 'git'
 brew 'git-extras'
@@ -47,6 +48,7 @@ brew 'imagemagick', args:['with-webp']
 brew 'lynx'
 brew 'mycli'
 brew 'neovim'
+brew 'node'
 brew 'python'
 brew 'pigz'
 brew 'pv'

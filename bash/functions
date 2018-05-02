@@ -70,3 +70,9 @@ function ssh-reagent () {
   fi
   echo Cannot find ssh agent - maybe you should reconnect and forward it?
 }
+
+# `shellswitch [bash |zsh]`
+#   Must be in /etc/shells
+shellswitch () {
+	chsh -s $(brew --prefix)/bin/$1
+}

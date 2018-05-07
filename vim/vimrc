@@ -461,6 +461,7 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 let g:argwrap_tail_comma = 1
 
 " Gitgutter config
+set signcolumn=yes
 if exists('&signcolumn')  " Vim 7.4.2201
   set signcolumn=yes
 else

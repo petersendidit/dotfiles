@@ -67,6 +67,7 @@
 
     # List aliases
     aliases = config --get-regexp alias
+	rm-deleted = !git rm $(git ls-files --deleted)
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -77,7 +78,9 @@
     show = diff-so-fancy | less --tabs=4 -RFX
 
 [interactive]
-    diffFilter = "diff-so-fancy"
+    # this broke when upgrading git
+    # https://github.com/so-fancy/diff-so-fancy/issues/296
+    # diffFilter = "diff-so-fancy"
 
 [difftool "Kaleidoscope"]
     cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"

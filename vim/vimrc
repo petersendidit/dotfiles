@@ -518,6 +518,8 @@ nnoremap <silent> <Leader><Leader> :Files<CR>
 nnoremap <silent> <Leader><Enter>  :Buffers<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>a :Ag<CR>
+" search word under cursor
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],

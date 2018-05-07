@@ -461,6 +461,7 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 let g:argwrap_tail_comma = 1
 
 " Gitgutter config
+set signcolumn=yes
 if exists('&signcolumn')  " Vim 7.4.2201
   set signcolumn=yes
 else
@@ -473,7 +474,9 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 let g:ale_fixers = {}
 let g:ale_fixers.javascript = ['eslint']
+" let g:ale_fixers.json = ['prettier']
 let g:ale_fixers.php = ['phpcbf']
+" let g:ale_javascript_prettier_use_global = 1
 nmap <F8> <Plug>(ale_fix)
 " let g:ale_fix_on_save = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wRaP)
@@ -515,6 +518,8 @@ nnoremap <silent> <Leader><Leader> :Files<CR>
 nnoremap <silent> <Leader><Enter>  :Buffers<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>a :Ag<CR>
+" search word under cursor
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],

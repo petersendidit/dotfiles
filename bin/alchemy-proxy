@@ -13,7 +13,8 @@ then
 		echo "Tunnel already running"
 	else
 		echo "Starting… "
-		/usr/local/bin/autossh -M 20000 -f -N -D 8001 alchsh && echo "Tunnel started"
+		# /usr/local/bin/autossh -M 20000 -f -N -D 8001 alchsh && echo "Tunnel started"
+		/usr/local/bin/autossh -M 20000 -N -D 8001 alchsh && echo "Tunnel started"
 	fi
 elif [ "$1" == "stop" ]
 then

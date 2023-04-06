@@ -14,6 +14,9 @@ brew 'gnu-sed' #--with-default-names
 brew 'bash'
 brew 'bash-completion2'
 
+# prompt
+brew 'starship'
+
 # Install `wget` with IRI support.
 brew 'wget', args: ['with-iri']
 
@@ -22,8 +25,12 @@ brew 'wget', args: ['with-iri']
 brew 'grep'
 brew 'openssh'
 brew 'screen'
-brew 'php@5.6', args: ['with-gmp']
+brew 'php@7.4', args: ['with-gmp']
 brew 'composer'
+
+tap 'caskroom/fonts'
+cask 'install font-fira-code'
+cask 'install font-fira-code-nerd-font'
 
 # Install font tools.
 tap 'bramstein/webfonttools'
@@ -38,7 +45,6 @@ brew 'diff-so-fancy'
 brew 'dark-mode'
 brew 'fzf'
 brew 'gpg'
-brew 'gh'
 brew 'git'
 brew 'git-extras'
 brew 'git-lfs'
@@ -47,8 +53,8 @@ brew 'imagemagick', args:['with-webp']
 brew 'lynx'
 brew 'mycli'
 brew 'neovim'
-brew 'node'
 brew 'python'
+brew 'pinentry-mac'
 brew 'pigz'
 brew 'pv'
 brew 'rename'
@@ -59,6 +65,7 @@ brew 'subversion'
 brew 'testssl'
 brew 'tree'
 brew 'tmux'
+tap 'universal-ctags/universal-ctags'
 brew 'universal-ctags'
 brew 'vbindiff'
 brew 'webkit2png'

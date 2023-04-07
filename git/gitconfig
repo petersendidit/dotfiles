@@ -5,6 +5,8 @@
 	s = status -s
     patch = !"git --no-pager diff --no-color"
 
+    d = switch development
+
     # Tools for iterative work
     save = "!git add -A && git commit -m 'SAVEPOINT'"
     wip = "commit -am 'WIP AM-0000'"
@@ -14,15 +16,12 @@
     # http://haacked.com/archive/2015/06/29/git-migrate/
     migrate = "!f(){ CURRENT=$(git symbolic-ref --short HEAD); git checkout -b $1 && git branch --force $CURRENT ${3-'$CURRENT@{u}'} && git rebase --onto ${2-master} $CURRENT; }; f"
 
-    # Mac Diff tool http://www.kaleidoscopeapp.com
-	ksdiff = difftool -y -t Kaleidoscope
-
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
-	branches = branch -l
+    # branches = branch -l # use git-extras git brv
 	branchesall = branch -a
 	remotes = remote -v
 
@@ -71,17 +70,13 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-
-[pager]
-    # insanely beautiful diffs ==> brew install diff-so-fancy
-    diff = diff-so-fancy | less --tabs=4 -RFX
-    show = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
 
 [interactive]
-    # this broke when upgrading git
-    # https://github.com/so-fancy/diff-so-fancy/issues/296
-    # diffFilter = "diff-so-fancy"
-
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    theme = GitHub
 [difftool "Kaleidoscope"]
     cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 
@@ -92,6 +87,7 @@
 	# shifts the hunk boundary in an attempt to make the resulting
 	# patch easier to read.
 	compactionHeuristic = true
+    colorMoved = default
 
 [color]
     ui = auto
@@ -119,6 +115,7 @@
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+    conflictstyle = diff3
 
 # correct typos
 [help]
@@ -130,9 +127,10 @@
 	required = true
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 
 # Any GitHub repo with my username should be checked out r/w by default
 # http://rentzsch.tumblr.com/post/564806957/public-but-hackable-git-submodules
@@ -154,23 +152,43 @@
 	pushInsteadOf = "https://gist.github.com/"
 
 [push]
-	default = simple
+	default = current
+	authoSetupRemote = true
+
+[pull]
+    rebase = true
+    autoStash = true
 
 [fetch]
     prune = true
-
-[commit]
-     # https://help.github.com/articles/signing-commits-using-gpg/
-    gpgsign = true
 
 [remote]
 	pushdefault = origin
 
 [user]
 	useconfigonly = true
+	name = David Petersen
+	email = david@petersendidit.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJCAdiIrkYQmU5hIyS115yUCDHy/V/s26YU3WOIkJbX9
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
 
 [branch]
 	autosetuprebase = always
 
 [include]
     path = .localgitconfig
+[credential]
+	helper = osxkeychain
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
+[init]
+	defaultBranch = main

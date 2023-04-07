@@ -49,3 +49,22 @@ node_modules/
 
 # Vim javascript tern
 .tern-port
+
+# VS Code Stuff
+jsconfig.json
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+
+RFC/
+
+# Personal files
+todo.md
+temp.php
+
+# For now might be worth committing these some times
+.vscode
